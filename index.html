@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Aren John Esoen, Software Engineer & Data Analyst." />
+    <title>Aren John Esoen | ENGINEER</title>
+  </head>
+  <body>
+    
+    <!-- Terminal Preloader -->
+    <div id="preloader" class="preloader">
+      <div class="crt-scanlines"></div>
+      <div class="terminal-container">
+        <div id="terminal-output" class="terminal-output mono"></div>
+      </div>
+    </div>
+
+    <!-- Ambient Interactive Background Elements -->
+    <div class="ambient-orb" id="ambient-orb"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="logo">AE.</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Work</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle" class="theme-toggle-btn">
+          [ LIGHT_MODE ]
+        </button>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section id="hero" class="hero">
+        <!-- Coordinate Accent (Caloocan City / Metro Manila) -->
+        <div class="hero-coords mask">
+          <span class="mask-inner delay-4">[ LAT: 14.6507° N | LNG: 120.9841° E ]</span>
+        </div>
+
+        <div class="container hero-content">
+          <!-- Status Badge -->
+          <div class="status-badge mask">
+            <span class="mono mask-inner delay-1">
+              <span class="pulse-dot"></span> SYS_STATUS: OPEN TO WORK
+            </span>
+          </div>
+
+          <h1 class="mask">
+            <span class="mask-inner delay-2 hover-expand">ENGINEERING</span>
+          </h1>
+          <h1 class="mask">
+            <span class="mask-inner delay-3 hover-expand">THE FUTURE.</span>
+          </h1>
+          <div class="mask">
+            <p class="hero-subtitle mask-inner delay-4">
+              I am <span class="highlight">Aren John Esoen</span>, a Computer Science graduate specializing in building <span class="highlight">high-performance, scalable, and robust software architectures.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Scroll Tracker -->
+        <div class="scroll-tracker mask">
+          <div class="mask-inner delay-4">
+            <span class="mono">SCROLL</span>
+            <div class="scroll-line"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about">
+        <div class="container">
+          <h2 class="mask"><span class="mask-inner">BACKGROUND</span></h2>
+          
+          <div class="about-grid">
+            <div class="about-text">
+              <div class="mask">
+                <span class="mono mask-inner" style="display: block; margin-bottom: 1rem; color: var(--text-color);">[ LOG_ENTRY: CORE_PROFILE ]</span>
+              </div>
+              <div class="mask"><p class="lead-text mask-inner delay-1">Based in Metro Manila, I am driven by a deep passion for strict engineering principles and precise, data-driven architectures.</p></div>
+              <div class="mask"><p class="mask-inner delay-2">My expertise spans full-stack web development and backend infrastructure, allowing me to build scalable systems, resilient RESTful APIs, and efficient data pipelines.</p></div>
+              <div class="mask"><p class="mask-inner delay-3">Currently looking for rigorous challenges where I can push technical boundaries as a Software Engineer or Data Analyst.</p></div>
+            </div>
+            
+            <div class="skills">
+              <div class="mask">
+                <span class="mono mask-inner" style="display: block; margin-bottom: 1rem;">// CORE_COMPETENCIES.JSON</span>
+              </div>
+              <div class="skills-table">
+                <div class="skills-row mask"><div class="mask-inner" style="display:contents;"><div class="skills-cell header delay-1">{"key": "Frontend"}</div><div class="skills-cell data delay-1" style="font-size: 0.95rem;">HTML, CSS, Tailwind, JS, TS, React</div></div></div>
+                <div class="skills-row mask"><div class="mask-inner" style="display:contents;"><div class="skills-cell header delay-2">{"key": "Backend"}</div><div class="skills-cell data delay-2" style="font-size: 0.95rem;">Node, Express, Django, Flask, REST</div></div></div>
+                <div class="skills-row mask"><div class="mask-inner" style="display:contents;"><div class="skills-cell header delay-3">{"key": "Database"}</div><div class="skills-cell data delay-3" style="font-size: 0.95rem;">MySQL, PostgreSQL, MongoDB, Firebase</div></div></div>
+                <div class="skills-row mask"><div class="mask-inner" style="display:contents;"><div class="skills-cell header delay-4">{"key": "DevOps"}</div><div class="skills-cell data delay-4" style="font-size: 0.95rem;">Git/GitHub, CI/CD, Docker</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="projects">
+        <div class="container">
+          <div class="mask"><span class="mono mask-inner" style="display: block; margin-bottom: 0.5rem;">[ SELECT * FROM RECENT_WORKS ]</span></div>
+          <h2 class="mask"><span class="mask-inner">PROJECTS</span></h2>
+          
+          <div class="projects-grid">
+            
+            <!-- Project 1 -->
+            <a href="#" class="project-card mask">
+              <div class="mask-inner delay-1">
+                <div class="project-header">
+                  <span class="mono live-status"><span class="pulse-dot"></span> DEPLOYED</span>
+                </div>
+                <div class="project-img-wrapper">
+                  <div class="project-img-inner" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200');"></div>
+                  <div class="scanner-overlay">
+                    <div class="crosshair"></div>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h3>[PROJECT ONE]</h3>
+                  <div class="data-tags">
+                    <span class="mono pill">TYPE: FULL-STACK</span>
+                    <span class="mono pill">YEAR: 2026</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project 2 -->
+            <a href="#" class="project-card mask">
+              <div class="mask-inner delay-2">
+                <div class="project-header">
+                  <span class="mono live-status"><span class="pulse-dot"></span> DEPLOYED</span>
+                </div>
+                <div class="project-img-wrapper">
+                  <div class="project-img-inner" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200');"></div>
+                  <div class="scanner-overlay">
+                    <div class="crosshair"></div>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h3>[PROJECT TWO]</h3>
+                  <div class="data-tags">
+                    <span class="mono pill">TYPE: BACKEND</span>
+                    <span class="mono pill">YEAR: 2026</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- Project 3 -->
+            <a href="#" class="project-card mask">
+              <div class="mask-inner delay-3">
+                <div class="project-header">
+                  <span class="mono live-status" style="opacity: 0.5;">[ OFFLINE ]</span>
+                </div>
+                <div class="project-img-wrapper">
+                  <div class="project-img-inner" style="background-image: url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1200');"></div>
+                  <div class="scanner-overlay">
+                    <div class="crosshair"></div>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <h3>[PROJECT THREE]</h3>
+                  <div class="data-tags">
+                    <span class="mono pill">TYPE: SCRIPTING</span>
+                    <span class="mono pill">YEAR: 2026</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <h2 class="mask"><span class="mask-inner">INITIATE CONTACT</span></h2>
+          <div class="mask">
+            <p class="mono mask-inner delay-1" style="margin-bottom: 0.5rem; opacity: 0.5;">STATUS: WAITING_FOR_CONNECTION...</p>
+          </div>
+          <div class="mask">
+            <p class="mono mask-inner delay-2 terminal-prompt">
+              <span style="color: var(--orb-color);">></span> system.connect(aren);<span class="cursor">_</span>
+            </p>
+          </div>
+          <div class="mask" style="display: flex; gap: 2rem; justify-content: center; margin-top: 2rem;">
+            <a href="mailto:esoen.arenjohn@gmail.com" class="contact-btn mask-inner delay-3">EXECUTE PROTOCOL</a>
+          </div>
+          
+          <div class="mask social-links-wrapper delay-4">
+            <a href="https://github.com/rnjhnd" target="_blank" class="social-link mono mask-inner">
+              <span class="bracket">[</span> GITHUB <span class="bracket">]</span>
+            </a>
+            <a href="https://www.linkedin.com/in/rnjhnd/" target="_blank" class="social-link mono mask-inner">
+              <span class="bracket">[</span> LINKEDIN <span class="bracket">]</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-structural">
+      <div class="container mask">
+        <span class="mono mask-inner">&copy; 2026 AREN JOHN ESOEN. SYS_STATUS: ONLINE.</span>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+      <div class="mobile-menu-content">
+        <a href="#about" class="mobile-link">ABOUT</a>
+        <a href="#projects" class="mobile-link">WORK</a>
+        <a href="#contact" class="mobile-link">CONTACT</a>
+        <button id="mobile-theme-toggle" class="theme-toggle-btn mobile-theme-toggle" style="margin-top: 2rem;">
+          [ LIGHT_MODE ]
+        </button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
