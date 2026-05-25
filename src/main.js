@@ -1,5 +1,9 @@
 import './style.css';
 import Lenis from 'lenis';
+import { inject } from '@vercel/analytics';
+
+// Initialize Vercel Analytics
+inject();
 
 document.addEventListener('DOMContentLoaded', () => {
 
