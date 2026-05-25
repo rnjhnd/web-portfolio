@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <rect width="100" height="100" rx="20" fill="#050505"/>
-  <text x="46" y="70" font-family="'Oswald', system-ui, sans-serif" font-size="55" font-weight="700" fill="#ffffff" text-anchor="middle">AE</text>
-  <circle cx="80" cy="65" r="8" fill="#1464ff"/>
+  <text x="43" y="68" font-family="'Oswald', system-ui, sans-serif" font-size="50" font-weight="700" fill="#ffffff" text-anchor="middle">AE</text>
+  <circle cx="82" cy="63" r="8" fill="#1464ff"/>
 </svg>
