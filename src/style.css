@@ -988,4 +988,19 @@ h2 {
     gap: 1.5rem;
     align-items: center;
   }
+  
+  .skills-row {
+    grid-template-columns: 1fr;
+  }
+  .skills-cell.header {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.5rem;
+  }
+  [data-theme="light"] .skills-cell.header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  .skills-cell.data {
+    padding-top: 1rem;
+  }
 }
