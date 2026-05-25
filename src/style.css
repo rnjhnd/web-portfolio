@@ -400,7 +400,7 @@ h1 {
   border-radius: 50%;
   box-shadow: 0 0 8px var(--brand-color);
   animation: pulse 2s infinite ease-in-out;
-  margin-left: 12px;
+  margin: 8px 12px;
 }
 @keyframes pulse {
   0% { transform: scale(0.8); opacity: 0.5; }
