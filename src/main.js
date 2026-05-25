@@ -1,9 +1,11 @@
 import './style.css';
 import Lenis from 'lenis';
 import { inject } from '@vercel/analytics';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
-// Initialize Vercel Analytics
+// Initialize Vercel Analytics & Speed Insights
 inject();
+injectSpeedInsights();
 
 document.addEventListener('DOMContentLoaded', () => {
 
