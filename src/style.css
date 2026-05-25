@@ -939,8 +939,17 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  nav { padding: 1.5rem 4vw; }
-  nav.scrolled { padding: 1rem 4vw; }
+  nav { 
+    padding: 1.5rem 4vw; 
+    background: var(--bg-color);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  nav.scrolled { 
+    padding: 1rem 4vw; 
+    background: var(--bg-color);
+  }
   .nav-links { display: none; }
   .mobile-menu-btn { display: block; }
   
