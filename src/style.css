@@ -487,15 +487,21 @@ h2 {
 .skills-table {
   display: grid;
   grid-template-columns: 1fr;
-  border: 1px dashed var(--border-color);
-  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  background-color: rgba(255, 255, 255, 0.01);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   cursor: crosshair;
+}
+
+[data-theme="light"] .skills-table {
+  background-color: rgba(0, 0, 0, 0.01);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
 .skills-row {
   display: grid;
   grid-template-columns: 35% 65%;
-  border-bottom: 1px dashed var(--border-color);
+  border-bottom: 1px solid var(--border-color);
   position: relative;
   transition: background-color var(--trans-snap);
 }
@@ -533,9 +539,10 @@ h2 {
 
 .skills-cell.header {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  border-right: 1px dashed var(--border-color);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  border-right: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   text-transform: uppercase;
