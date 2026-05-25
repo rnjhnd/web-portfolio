@@ -5,15 +5,14 @@
   --bg-color: #050505;
   --text-color: #ffffff;
   --text-muted: #888888;
-  --border-color: rgba(255,255,255,0.15);
   
   /* Subtle Data Grid */
+  --border-color: rgba(255, 255, 255, 0.1);
   --grid-color: rgba(255, 255, 255, 0.03);
-  
-  /* Moody Orb Color (Electric Blue) */
   --orb-color: rgba(20, 100, 255, 0.35);
+  --brand-color: #1464ff;
 
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
   --font-display: 'Oswald', sans-serif;
   --font-mono: 'Fira Code', monospace;
   
@@ -26,10 +25,11 @@
   --bg-color: #ffffff;
   --text-color: #050505;
   --text-muted: #666666;
-  --border-color: rgba(0,0,0,0.15);
+  --border-color: rgba(0, 0, 0, 0.1);
   
-  --grid-color: rgba(0, 0, 0, 0.03);
+  --grid-color: rgba(0, 0, 0, 0.05);
   --orb-color: rgba(100, 110, 120, 0.3);
+  --brand-color: #0040cc;
 }
 
 * {
@@ -93,7 +93,7 @@ html, body {
 }
 
 .success-text {
-  color: var(--orb-color);
+  color: var(--brand-color);
   text-shadow: 0 0 10px var(--orb-color);
   font-weight: 700;
 }
@@ -283,7 +283,7 @@ nav.scrolled {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: var(--orb-color);
+  background-color: var(--brand-color);
   transform: translateX(-50%) scale(0);
   transition: transform var(--trans-snap), box-shadow var(--trans-snap);
   box-shadow: 0 0 8px var(--orb-color);
@@ -395,11 +395,10 @@ h1 {
   color: var(--text-color);
 }
 .pulse-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--orb-color);
+  width: 6px; height: 6px;
+  background-color: var(--brand-color);
   border-radius: 50%;
-  box-shadow: 0 0 10px var(--orb-color);
+  box-shadow: 0 0 8px var(--brand-color);
   animation: pulse 2s infinite ease-in-out;
 }
 @keyframes pulse {
@@ -510,7 +509,7 @@ h2 {
   position: absolute;
   top: 0; left: 0;
   height: 100%; width: 4px;
-  background-color: var(--orb-color);
+  background-color: var(--brand-color);
   transform: scaleY(0);
   transform-origin: center;
   transition: transform var(--trans-snap);
@@ -579,7 +578,7 @@ h2 {
 }
 
 .project-card:hover {
-  border: 1px solid var(--orb-color);
+  border: 1px solid var(--brand-color);
   background-color: rgba(255, 255, 255, 0.01);
 }
 
@@ -660,6 +659,10 @@ h2 {
   transform: translateX(-50%);
 }
 
+.project-card:hover .project-img-wrapper {
+  border: 1px solid var(--brand-color);
+  transform: scale(0.98);
+}
 .project-card:hover .project-img-inner {
   filter: grayscale(0%) contrast(100%);
   transform: scale(1.05);
@@ -785,7 +788,7 @@ h2 {
 }
 
 .social-link:hover {
-  color: var(--orb-color);
+  color: var(--brand-color);
 }
 
 .social-link:hover .bracket {
@@ -843,16 +846,16 @@ h2 {
 
 .mobile-menu-btn.open .hamburger-line:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
-  background-color: var(--orb-color);
-  box-shadow: 0 0 8px var(--orb-color);
+  background-color: var(--brand-color);
+  box-shadow: 0 0 8px var(--brand-color);
 }
 .mobile-menu-btn.open .hamburger-line:nth-child(2) {
   opacity: 0;
 }
 .mobile-menu-btn.open .hamburger-line:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
-  background-color: var(--orb-color);
-  box-shadow: 0 0 8px var(--orb-color);
+  background-color: var(--brand-color);
+  box-shadow: 0 0 8px var(--brand-color);
 }
 
 .mobile-menu-overlay {
