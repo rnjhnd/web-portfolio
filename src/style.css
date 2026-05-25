@@ -1061,7 +1061,8 @@ h2 {
     row-gap: 5rem;
   }
   
-  .hero-coords {
+  .hero-coords,
+  .scroll-tracker {
     display: none;
   }
 }
