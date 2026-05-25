@@ -1111,6 +1111,7 @@ h2 {
   }
   .skills-cell.header {
     text-align: center;
+    justify-content: center;
   }
   
   .about, .projects {
