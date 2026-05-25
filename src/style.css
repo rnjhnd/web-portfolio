@@ -345,9 +345,9 @@ h1, h2, h3 {
 .hero-coords {
   position: absolute;
   top: 60%;
-  right: 4vw;
-  transform: translateY(-50%) rotate(90deg);
-  transform-origin: right center;
+  left: 2vw;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left center;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--text-muted);
@@ -360,6 +360,17 @@ h1, h2, h3 {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+}
+
+.hero-text-col {
+  container-type: inline-size;
+  min-width: 0;
+}
+
+.hero-text-col h1 {
+  font-size: clamp(3rem, 15cqw, 7.5rem);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
 }
 
 .hero-img-col {
@@ -416,7 +427,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: clamp(5rem, 12vw, 10rem);
+  font-size: clamp(3rem, 12vw, 8rem);
   line-height: 1.1;
   margin-bottom: 0.5rem;
 }
@@ -1002,12 +1013,21 @@ h2 {
   .hero-img-col {
     justify-content: center;
     grid-row: 1;
+    margin-bottom: 2rem;
   }
   .hero-text-col {
     grid-row: 2;
+    text-align: center;
+  }
+  .hero-text-col .mask {
+    justify-content: center;
+    display: flex;
+  }
+  .hero-text-col h1 {
+    font-size: clamp(3.5rem, 12cqw, 8rem);
   }
 
-  h1 { font-size: clamp(3rem, 10vw, 10rem); }
+  h1 { font-size: clamp(3rem, 10vw, 8rem); }
   h2 { font-size: clamp(3rem, 8vw, 6rem); }
   .contact h2 { font-size: clamp(3rem, 8vw, 8rem); }
   .project-info h3 { font-size: clamp(2rem, 5vw, 3rem); }
