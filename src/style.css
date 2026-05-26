@@ -775,12 +775,18 @@ h2 {
 .project-tech-stack {
   margin-bottom: 1.5rem;
   padding: 1rem 1.5rem;
-  background: var(--text-color);
-  color: var(--bg-color);
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text-color);
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  border: 1px solid var(--text-color);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--brand-color);
+  line-height: 1.5;
+}
+
+[data-theme="dark"] .project-tech-stack {
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .project-img-wrapper {
