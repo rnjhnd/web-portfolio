@@ -768,8 +768,6 @@ h2 {
 .scanner-overlay {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
   background-size: 20px 20px;
   background-position: center center;
   pointer-events: none;
@@ -780,10 +778,7 @@ h2 {
 }
 
 .crosshair {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  transition: transform var(--trans-snap), opacity var(--trans-snap);
+  display: none;
 }
 .crosshair::before {
   content: '';
