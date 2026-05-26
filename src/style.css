@@ -1199,7 +1199,19 @@ h2 {
   .contact { padding: 10vh 0; }
 
   .project-img-wrapper {
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
+  }
+  
+  .project-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .project-info .data-tags {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
   
   .contact-btn {
