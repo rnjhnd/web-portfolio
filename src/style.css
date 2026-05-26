@@ -748,60 +748,58 @@ h2 {
 .project-row:nth-child(odd) .project-card {
   grid-column: 1 / 8;
 }
-.project-row:nth-child(odd) .project-desc-wrapper {
+.project-row:nth-child(odd) .project-marquee {
   grid-column: 9 / 13;
 }
 
-.project-row:nth-child(even) .project-desc-wrapper {
+.project-row:nth-child(even) .project-marquee {
   grid-column: 1 / 5;
 }
 .project-row:nth-child(even) .project-card {
   grid-column: 5 / 13;
 }
 
-.project-desc-wrapper {
+.project-marquee {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 1;
+  overflow: hidden;
+  height: 100%;
 }
 
-.project-desc {
-  position: relative;
+.marquee-track {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 2;
+  white-space: nowrap;
+  animation: marqueeScroll 25s linear infinite;
+  width: max-content;
 }
 
-.desc-watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.marquee-track.reverse {
+  animation: marqueeScrollReverse 25s linear infinite;
+}
+
+.marquee-text {
   font-family: var(--font-display);
-  font-size: clamp(8rem, 15vw, 15rem);
+  font-size: clamp(6rem, 10vw, 10rem);
   font-weight: 800;
-  color: var(--text-color);
-  opacity: 0.15;
-  z-index: -1;
-  pointer-events: none;
-  user-select: none;
+  line-height: 1;
+  padding-right: 2rem;
 }
 
-.project-desc h4 {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  color: var(--brand-color);
-  margin-bottom: 1rem;
+.hollow-text {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-muted);
 }
 
-.project-desc p {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  color: var(--text-color);
-  line-height: 1.6;
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeScrollReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
 .project-img-wrapper {
@@ -1148,20 +1146,8 @@ h2 {
     gap: 3rem;
   }
   
-  .project-desc-wrapper {
-    align-items: flex-start !important;
-    text-align: left !important;
-  }
-  
-  .project-desc-wrapper .desc-watermark {
-    left: 50% !important;
-    right: auto !important;
-    transform: translate(-50%, -50%) !important;
-  }
-  
-  .project-desc {
-    align-items: flex-start !important;
-    text-align: left !important;
+  .project-marquee {
+    display: none;
   }
   
   .project-actions {
