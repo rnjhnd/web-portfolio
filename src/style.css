@@ -672,7 +672,7 @@ h2 {
 .project-row {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  column-gap: 2rem;
+  column-gap: 4rem;
   align-items: center;
 }
 
@@ -773,10 +773,10 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-display);
-  font-size: 15rem;
+  font-size: clamp(8rem, 15vw, 15rem);
   font-weight: 800;
   color: var(--text-color);
-  opacity: 0.03;
+  opacity: 0.15;
   z-index: -1;
   pointer-events: none;
   user-select: none;
@@ -1134,13 +1134,19 @@ h2 {
     gap: 4rem;
   }
   
-  .project-card:nth-child(odd),
-  .project-card:nth-child(even) {
-    grid-column: 1 / -1;
+  .project-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .project-desc {
+    align-items: flex-start !important;
+    text-align: left !important;
   }
   
   .projects-grid {
-    row-gap: 5rem;
+    gap: 5rem;
   }
   
   .hero-coords,
