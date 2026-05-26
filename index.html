@@ -126,7 +126,12 @@
           <div class="mask"><span class="mono mask-inner" style="display: block; margin-bottom: 0.5rem;">[ SELECT * FROM RECENT_WORKS ]</span></div>
           <h2 class="mask"><span class="mask-inner">PROJECTS</span></h2>
           
-          <div class="projects-grid">
+          <div class="carousel-nav mask">
+            <button class="carousel-btn mask-inner delay-1" id="carousel-prev">[ &lt; PREV ]</button>
+            <button class="carousel-btn mask-inner delay-2" id="carousel-next">[ NEXT &gt; ]</button>
+          </div>
+          
+          <div class="projects-grid" id="projects-carousel">
             
             <!-- Project 1 -->
             <div class="project-row">

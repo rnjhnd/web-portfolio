@@ -238,4 +238,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const maskedElements = document.querySelectorAll('.mask');
   maskedElements.forEach(el => observer.observe(el));
 
+  // --- Horizontal Carousel JS ---
+  const projectsCarousel = document.getElementById('projects-carousel');
+  const carouselPrev = document.getElementById('carousel-prev');
+  const carouselNext = document.getElementById('carousel-next');
+
+  if (projectsCarousel) {
+    projectsCarousel.addEventListener('wheel', (evt) => {
+      if (evt.deltaY !== 0 && !evt.shiftKey) {
+        evt.preventDefault();
+        projectsCarousel.scrollBy({
+          left: evt.deltaY * 4,
+          behavior: 'smooth'
+        });
+      }
+    });
+
+    if (carouselPrev) {
+      carouselPrev.addEventListener('click', () => {
+        projectsCarousel.scrollBy({ left: -window.innerWidth * 0.6, behavior: 'smooth' });
+      });
+    }
+
+    if (carouselNext) {
+      carouselNext.addEventListener('click', () => {
+        projectsCarousel.scrollBy({ left: window.innerWidth * 0.6, behavior: 'smooth' });
+      });
+    }
+  }
+
 });
