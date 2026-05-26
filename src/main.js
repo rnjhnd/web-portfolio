@@ -12,8 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Terminal Preloader Logic ---
   const preloader = document.getElementById('preloader');
   
-  // Disable scroll during preloader
-  document.body.style.overflow = 'hidden';
+  if (sessionStorage.getItem('preloaderShown')) {
+    preloader.style.display = 'none';
+  } else {
+    // Disable scroll during preloader
+    document.body.style.overflow = 'hidden';
 
   const terminalOutput = document.getElementById('terminal-output');
   
@@ -80,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
               setTimeout(() => {
                 preloader.classList.add('hidden');
                 document.body.style.overflow = ''; 
+                sessionStorage.setItem('preloaderShown', 'true');
                 
                 setTimeout(() => {
                   window.dispatchEvent(new Event('scroll'));
@@ -91,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }, 400);
+  }
 
   // --- Theme Toggle Logic ---
   const themeToggleBtn = document.getElementById('theme-toggle');
