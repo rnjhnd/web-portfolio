@@ -805,7 +805,7 @@ h2 {
   transform: scale(0.98);
 }
 .project-card:hover .project-img-inner {
-  transform: scale(1.05);
+  
 }
 .project-card:hover .scanner-overlay {
   opacity: 0;
