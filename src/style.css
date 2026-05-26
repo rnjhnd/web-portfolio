@@ -749,14 +749,12 @@ h2 {
   grid-column: 1 / 8;
   grid-row: 1;
 }
-.project-row:nth-child(odd) .project-marquee,
-.project-row:nth-child(odd) .project-desc {
+.project-row:nth-child(odd) .project-marquee {
   grid-column: 9 / 13;
   grid-row: 1;
 }
 
-.project-row:nth-child(even) .project-marquee,
-.project-row:nth-child(even) .project-desc {
+.project-row:nth-child(even) .project-marquee {
   grid-column: 1 / 5;
   grid-row: 1;
 }
@@ -772,32 +770,32 @@ h2 {
   justify-content: center;
   overflow: hidden;
   height: 100%;
-  z-index: 1;
 }
 
-.project-desc {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 2;
-  pointer-events: none;
+.project-card-desc {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  background: rgba(0, 0, 0, 0.02);
 }
 
-.project-desc h4 {
+[data-theme="dark"] .project-card-desc {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.project-card-desc h4 {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--brand-color);
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 0px var(--bg-color), -2px -2px 0px var(--bg-color), 2px -2px 0px var(--bg-color), -2px 2px 0px var(--bg-color);
+  text-transform: uppercase;
 }
 
-.project-desc p {
+.project-card-desc p {
   font-family: var(--font-mono);
   font-size: 1rem;
   color: var(--text-color);
   line-height: 1.6;
-  text-shadow: 2px 2px 0px var(--bg-color), -2px -2px 0px var(--bg-color), 2px -2px 0px var(--bg-color), -2px 2px 0px var(--bg-color);
 }
 
 .marquee-track {
