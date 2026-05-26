@@ -674,14 +674,54 @@ h2 {
   display: block;
   position: relative;
   overflow: hidden;
-  padding: 1rem;
-  border: 1px dashed var(--border-color);
-  transition: border-color var(--trans-snap), background-color var(--trans-snap);
+  padding: 1.5rem;
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-color);
+  box-shadow: 6px 6px 0 0 var(--border-color);
+  transition: all var(--trans-snap);
 }
 
 .project-card:hover {
-  border: 1px solid var(--brand-color);
-  background-color: rgba(255, 255, 255, 0.01);
+  border-color: var(--brand-color);
+  box-shadow: 10px 10px 0 0 var(--brand-color);
+  transform: translate(-4px, -4px);
+}
+
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.project-btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--text-color);
+  background-color: transparent;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all var(--trans-snap);
+  text-align: center;
+  flex: 1;
+}
+
+.project-btn:hover {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+.project-btn.primary {
+  border-color: var(--brand-color);
+  color: var(--brand-color);
+}
+
+.project-btn.primary:hover {
+  background-color: var(--brand-color);
+  color: #fff;
 }
 
 .project-header {
