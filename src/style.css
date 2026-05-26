@@ -663,9 +663,9 @@ h2 {
 }
 
 .projects-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
   margin-top: 5rem;
 }
 
@@ -1138,7 +1138,8 @@ h2 {
   }
   
   .projects-grid {
-    gap: 3rem;
+    grid-template-columns: 1fr;
+    gap: 4rem;
   }
   
   .hero-coords,
