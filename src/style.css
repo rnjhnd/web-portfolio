@@ -748,15 +748,23 @@ h2 {
 .project-row:nth-child(odd) .project-card {
   grid-column: 1 / 8;
 }
-.project-row:nth-child(odd) .project-desc {
+.project-row:nth-child(odd) .project-desc-wrapper {
   grid-column: 9 / 13;
 }
 
-.project-row:nth-child(even) .project-desc {
+.project-row:nth-child(even) .project-desc-wrapper {
   grid-column: 1 / 5;
 }
 .project-row:nth-child(even) .project-card {
   grid-column: 5 / 13;
+}
+
+.project-desc-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
 }
 
 .project-desc {
@@ -764,7 +772,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 1;
+  z-index: 2;
 }
 
 .desc-watermark {
@@ -1140,9 +1148,31 @@ h2 {
     gap: 3rem;
   }
   
+  .project-desc-wrapper {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+  
+  .project-desc-wrapper .desc-watermark {
+    left: 50% !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  
   .project-desc {
     align-items: flex-start !important;
     text-align: left !important;
+  }
+  
+  .project-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .project-actions .project-btn {
+    text-align: center;
+    width: 100%;
   }
   
   .projects-grid {
