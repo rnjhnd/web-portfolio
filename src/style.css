@@ -747,16 +747,22 @@ h2 {
 
 .project-row:nth-child(odd) .project-card {
   grid-column: 1 / 8;
+  grid-row: 1;
 }
-.project-row:nth-child(odd) .project-marquee {
+.project-row:nth-child(odd) .project-marquee,
+.project-row:nth-child(odd) .project-desc {
   grid-column: 9 / 13;
+  grid-row: 1;
 }
 
-.project-row:nth-child(even) .project-marquee {
+.project-row:nth-child(even) .project-marquee,
+.project-row:nth-child(even) .project-desc {
   grid-column: 1 / 5;
+  grid-row: 1;
 }
 .project-row:nth-child(even) .project-card {
   grid-column: 5 / 13;
+  grid-row: 1;
 }
 
 .project-marquee {
@@ -766,6 +772,32 @@ h2 {
   justify-content: center;
   overflow: hidden;
   height: 100%;
+  z-index: 1;
+}
+
+.project-desc {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.project-desc h4 {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--brand-color);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 0px var(--bg-color), -2px -2px 0px var(--bg-color), 2px -2px 0px var(--bg-color), -2px 2px 0px var(--bg-color);
+}
+
+.project-desc p {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  text-shadow: 2px 2px 0px var(--bg-color), -2px -2px 0px var(--bg-color), 2px -2px 0px var(--bg-color), -2px 2px 0px var(--bg-color);
 }
 
 .marquee-track {
@@ -1144,6 +1176,11 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+  }
+  
+  .project-desc {
+    align-items: flex-start !important;
+    text-align: left !important;
   }
   
   .project-marquee {
