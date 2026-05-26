@@ -664,8 +664,8 @@ h2 {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   margin-top: 5rem;
 }
 
@@ -681,7 +681,7 @@ h2 {
   max-width: 900px;
   position: relative;
   overflow: hidden;
-  padding: 1.5rem;
+  padding: 1rem;
   border: 2px solid var(--border-color);
   background-color: var(--bg-color);
   box-shadow: 6px 6px 0 0 var(--border-color);
@@ -706,7 +706,8 @@ h2 {
   font-size: 0.9rem;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 0.8rem 1rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;
   border: 2px solid var(--text-color);
   background-color: transparent;
   color: var(--text-color);
@@ -747,8 +748,8 @@ h2 {
 }
 
 .project-card-desc {
-  margin-bottom: 1rem;
-  padding: 1.5rem;
+  margin-bottom: 0.8rem;
+  padding: 1rem;
   border: 1px solid var(--border-color);
   background: rgba(0, 0, 0, 0.02);
 }
@@ -767,18 +768,18 @@ h2 {
 
 .project-card-desc p {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .project-tech-stack {
-  margin-bottom: 1.5rem;
-  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
   background: rgba(0, 0, 0, 0.03);
   color: var(--text-color);
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 700;
   border: 1px solid var(--border-color);
   border-left: 4px solid var(--brand-color);
@@ -1144,8 +1145,8 @@ h2 {
   }
   
   .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 4rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
   
   .hero-coords,
@@ -1165,6 +1166,7 @@ h2 {
   
   .about { padding: 10vh 0; }
   .projects { padding: 10vh 0; }
+  .projects-grid { grid-template-columns: 1fr; gap: 2rem; }
   .contact { padding: 10vh 0; }
 
   .project-img-wrapper {
