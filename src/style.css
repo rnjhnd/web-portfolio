@@ -664,9 +664,27 @@ h2 {
 
 .projects-grid {
   display: flex;
-  flex-direction: column;
-  gap: 8rem;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 5vw;
   margin-top: 5rem;
+  padding-bottom: 2rem;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.projects-grid::-webkit-scrollbar {
+  height: 12px;
+}
+.projects-grid::-webkit-scrollbar-track {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  margin: 0 5vw;
+}
+.projects-grid::-webkit-scrollbar-thumb {
+  background-color: var(--brand-color);
+  border: 2px solid var(--bg-color);
 }
 
 .project-row {
@@ -674,6 +692,8 @@ h2 {
   grid-template-columns: repeat(12, 1fr);
   column-gap: 4rem;
   align-items: center;
+  flex: 0 0 85vw;
+  scroll-snap-align: center;
 }
 
 .project-card {
@@ -1174,6 +1194,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    flex: 0 0 90vw;
   }
   
   .project-desc {
@@ -1197,7 +1218,9 @@ h2 {
   }
   
   .projects-grid {
-    gap: 5rem;
+    gap: 5vw;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
   }
   
   .hero-coords,
