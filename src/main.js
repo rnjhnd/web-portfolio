@@ -101,27 +101,91 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Bento Box Logic ---
-  const bentoTime = document.getElementById('bento-time');
-  if (bentoTime) {
-    const updateTime = () => {
-      const now = new Date();
-      bentoTime.textContent = now.toLocaleTimeString('en-US', { hour12: false });
-    };
-    updateTime();
-    setInterval(updateTime, 1000);
-  }
+  // --- Particle Canvas Logic ---
+  const canvas = document.getElementById('particle-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    let mouse = { x: null, y: null };
 
-  const bentoHeatmap = document.getElementById('bento-heatmap');
-  if (bentoHeatmap) {
-    for (let i = 0; i < 84; i++) {
-      const square = document.createElement('div');
-      square.className = 'heatmap-square';
-      if (Math.random() > 0.6) {
-        square.style.backgroundColor = `rgba(39, 201, 63, ${Math.random() * 0.8 + 0.2})`;
+    const resize = () => {
+      width = canvas.parentElement.clientWidth;
+      height = canvas.parentElement.clientHeight;
+      canvas.width = width;
+      canvas.height = height;
+      initParticles();
+    };
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.baseX = this.x;
+        this.baseY = this.y;
+        this.size = Math.random() * 2 + 1;
+        this.density = (Math.random() * 30) + 1;
       }
-      bentoHeatmap.appendChild(square);
+      update() {
+        if (mouse.x != null) {
+          let dx = mouse.x - this.x;
+          let dy = mouse.y - this.y;
+          let distance = Math.sqrt(dx * dx + dy * dy);
+          let maxDistance = 100;
+          if (distance < maxDistance) {
+            let forceDirectionX = dx / distance;
+            let forceDirectionY = dy / distance;
+            let force = (maxDistance - distance) / maxDistance;
+            let directionX = forceDirectionX * force * this.density;
+            let directionY = forceDirectionY * force * this.density;
+            this.x -= directionX;
+            this.y -= directionY;
+          } else {
+            if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10;
+            if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10;
+          }
+        } else {
+          if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10;
+          if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10;
+        }
+      }
+      draw() {
+        ctx.fillStyle = 'rgba(39, 201, 63, 0.8)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+      }
     }
+
+    const initParticles = () => {
+      particles = [];
+      for (let i = 0; i < 300; i++) particles.push(new Particle());
+    };
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    const animateParticles = () => {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+      }
+      requestAnimationFrame(animateParticles);
+    };
+    animateParticles();
   }
 
   // --- Ambient Cursor Orb Logic ---
