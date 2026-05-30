@@ -379,8 +379,8 @@ h1, h2, h3 {
   position: relative;
 }
 
-/* Particle Canvas Styles */
-.particle-wrapper {
+/* Topology Canvas Styles */
+.topology-wrapper {
   width: 100%;
   max-width: 480px;
   height: 300px;
@@ -393,7 +393,7 @@ h1, h2, h3 {
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-#particle-canvas {
+#topology-canvas {
   display: block;
   width: 100%;
   height: 100%;

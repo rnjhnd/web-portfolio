@@ -101,91 +101,91 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Particle Canvas Logic ---
-  const canvas = document.getElementById('particle-canvas');
+  // --- Topology Canvas Logic ---
+  const canvas = document.getElementById('topology-canvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
     let width, height;
-    let particles = [];
-    let mouse = { x: null, y: null };
-
+    let time = 0;
+    
     const resize = () => {
       width = canvas.parentElement.clientWidth;
       height = canvas.parentElement.clientHeight;
       canvas.width = width;
       canvas.height = height;
-      initParticles();
     };
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.baseX = this.x;
-        this.baseY = this.y;
-        this.size = Math.random() * 2 + 1;
-        this.density = (Math.random() * 30) + 1;
-      }
-      update() {
-        if (mouse.x != null) {
-          let dx = mouse.x - this.x;
-          let dy = mouse.y - this.y;
-          let distance = Math.sqrt(dx * dx + dy * dy);
-          let maxDistance = 100;
-          if (distance < maxDistance) {
-            let forceDirectionX = dx / distance;
-            let forceDirectionY = dy / distance;
-            let force = (maxDistance - distance) / maxDistance;
-            let directionX = forceDirectionX * force * this.density;
-            let directionY = forceDirectionY * force * this.density;
-            this.x -= directionX;
-            this.y -= directionY;
-          } else {
-            if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10;
-            if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10;
-          }
-        } else {
-          if (this.x !== this.baseX) this.x -= (this.x - this.baseX) / 10;
-          if (this.y !== this.baseY) this.y -= (this.y - this.baseY) / 10;
-        }
-      }
-      draw() {
-        ctx.fillStyle = 'rgba(39, 201, 63, 0.8)';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.closePath();
-        ctx.fill();
-      }
-    }
-
-    const initParticles = () => {
-      particles = [];
-      for (let i = 0; i < 300; i++) particles.push(new Particle());
-    };
-
+    
     window.addEventListener('resize', resize);
     resize();
 
-    canvas.addEventListener('mousemove', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    });
-
-    canvas.addEventListener('mouseleave', () => {
-      mouse.x = null;
-      mouse.y = null;
-    });
-
-    const animateParticles = () => {
+    const cols = 22;
+    const rows = 18;
+    const scale = 25;
+    
+    const animateTopology = () => {
       ctx.clearRect(0, 0, width, height);
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
+      ctx.strokeStyle = 'rgba(39, 201, 63, 0.5)';
+      ctx.lineWidth = 1;
+      
+      time -= 0.02;
+      
+      let terrain = [];
+      let yOffset = time;
+      for (let y = 0; y < rows; y++) {
+        terrain[y] = [];
+        let xOffset = 0;
+        for (let x = 0; x < cols; x++) {
+          terrain[y][x] = Math.sin(xOffset) * Math.cos(yOffset) * 20 + Math.sin(xOffset * 0.5 + yOffset * 0.8) * 15;
+          xOffset += 0.4;
+        }
+        yOffset += 0.4;
       }
-      requestAnimationFrame(animateParticles);
+      
+      ctx.save();
+      ctx.translate(width / 2, height / 2 + 50);
+      
+      for (let y = 0; y < rows - 1; y++) {
+        ctx.beginPath();
+        for (let x = 0; x < cols; x++) {
+          let px1 = (x - cols/2) * scale;
+          let py1 = (y - rows/2) * scale;
+          let pz1 = terrain[y][x];
+          
+          let drawX1 = px1 - py1;
+          let drawY1 = (px1 + py1) / 2 - pz1;
+          
+          if (x === 0) ctx.moveTo(drawX1, drawY1);
+          else ctx.lineTo(drawX1, drawY1);
+        }
+        ctx.stroke();
+        
+        ctx.beginPath();
+        for (let x = 0; x < cols; x++) {
+          let px1 = (x - cols/2) * scale;
+          let py1 = (y - rows/2) * scale;
+          let pz1 = terrain[y][x];
+          
+          let px2 = (x - cols/2) * scale;
+          let py2 = (y + 1 - rows/2) * scale;
+          let pz2 = terrain[y+1][x];
+          
+          let drawX1 = px1 - py1;
+          let drawY1 = (px1 + py1) / 2 - pz1;
+          
+          let drawX2 = px2 - py2;
+          let drawY2 = (px2 + py2) / 2 - pz2;
+          
+          ctx.moveTo(drawX1, drawY1);
+          ctx.lineTo(drawX2, drawY2);
+        }
+        ctx.stroke();
+      }
+      
+      ctx.restore();
+      requestAnimationFrame(animateTopology);
     };
-    animateParticles();
+    
+    animateTopology();
   }
 
   // --- Ambient Cursor Orb Logic ---
