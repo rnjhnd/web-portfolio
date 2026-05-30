@@ -165,14 +165,23 @@
           <div class="mask"><span class="mono mask-inner" style="display: block; margin-bottom: 0.5rem;">[ SELECT * FROM RECENT_WORKS ]</span></div>
           <h2 class="mask"><span class="mask-inner">PROJECTS</span></h2>
           
+          <div class="mask">
+            <div class="project-filters mask-inner delay-1 mono">
+              <button class="filter-btn active" data-filter="all">[ ALL ]</button>
+              <button class="filter-btn" data-filter="frontend">[ FRONTEND ]</button>
+              <button class="filter-btn" data-filter="data">[ DATA_ENGINEERING ]</button>
+            </div>
+          </div>
+          
           <div class="projects-grid">
             
             <!-- Project 1 -->
-            <div class="project-row">
+            <div class="project-row" data-category="frontend">
               <div class="project-card mask">
-                <div class="mask-inner delay-1">
+                <div class="mask-inner delay-2">
                   <div class="project-header">
-                    <span class="mono live-status"><span class="pulse-dot"></span> DEPLOYED</span>
+                    <span class="mono live-status"><span class="pulse-dot"></span> [ STATUS: ONLINE ]</span>
+                    <span class="mono" style="color: var(--text-muted); font-size: 0.8rem;">ID: 001</span>
                   </div>
                   <div class="project-img-wrapper">
                     <div class="project-img-inner carousel-img" style="background-image: url('/asset-portal-bg-1.png');"></div>
@@ -202,59 +211,59 @@
             </div>
 
             <!-- Project 2 -->
-            <div class="project-row">
-              <a href="#" class="project-card mask">
+            <div class="project-row" data-category="data">
+              <div class="project-card placeholder-card mask">
                 <div class="mask-inner delay-3">
                   <div class="project-header">
-                    <span class="mono live-status"><span class="pulse-dot"></span> DEPLOYED</span>
+                    <span class="mono live-status" style="opacity: 0.5;">[ STATUS: IN_DEVELOPMENT ]</span>
+                    <span class="mono" style="color: var(--text-muted); font-size: 0.8rem;">ID: 002</span>
                   </div>
-                  <div class="project-img-wrapper">
-                    <div class="project-img-inner" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200');"></div>
-                    <div class="scanner-overlay">
-                    </div>
+                  <div class="placeholder-content">
+                    <div class="spinner"></div>
+                    <span class="mono">BUILDING_ARCHITECTURE...</span>
                   </div>
                   <div class="project-info">
-                    <span class="mono project-meta">// SYSTEM ARCHITECT</span>
-                    <h3>[PROJECT TWO]</h3>
+                    <span class="mono project-meta">// DATA ENGINEERING</span>
+                    <h3>[ CLASSIFIED_PROJECT_A ]</h3>
                   </div>
                   <div class="project-card-desc">
-                    <p>
-                      Developed a high-performance backend architecture focusing on brutalist aesthetics and seamless user interactions. Implemented complex state management without compromising on load speeds.
+                    <p class="mono" style="color: var(--text-muted);">
+                      ████████ high-performance data pipeline focusing on ██████ aggregation and seamless ██████. Implemented complex ██████████ without compromising on load speeds.
                     </p>
                   </div>
                   <div class="project-tech-stack">
-                    <span class="mono">[ TECH_STACK ] : TYPESCRIPT // EXPRESS // REDIS // DOCKER</span>
+                    <span class="mono" style="opacity: 0.5;">[ TECH_STACK ] : PENDING_REVIEW</span>
                   </div>
                 </div>
-              </a>
+              </div>
             </div>
 
             <!-- Project 3 -->
-            <div class="project-row">
-              <a href="#" class="project-card mask">
-                <div class="mask-inner delay-1">
+            <div class="project-row" data-category="frontend">
+              <div class="project-card placeholder-card mask">
+                <div class="mask-inner delay-4">
                   <div class="project-header">
-                    <span class="mono live-status" style="opacity: 0.5;">[ OFFLINE ]</span>
+                    <span class="mono live-status" style="opacity: 0.5;">[ STATUS: IN_DEVELOPMENT ]</span>
+                    <span class="mono" style="color: var(--text-muted); font-size: 0.8rem;">ID: 003</span>
                   </div>
-                  <div class="project-img-wrapper">
-                    <div class="project-img-inner" style="background-image: url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1200');"></div>
-                    <div class="scanner-overlay">
-                    </div>
+                  <div class="placeholder-content">
+                    <div class="spinner"></div>
+                    <span class="mono">AWAITING_RESOURCES...</span>
                   </div>
                   <div class="project-info">
-                    <span class="mono project-meta">// BACKEND ENGINEER</span>
-                    <h3>[PROJECT THREE]</h3>
+                    <span class="mono project-meta">// FRONTEND</span>
+                    <h3>[ CLASSIFIED_PROJECT_B ]</h3>
                   </div>
                   <div class="project-card-desc">
-                    <p>
-                      Designed and scaled a microservices architecture to handle high-throughput data processing. Integrated third-party APIs and optimized database queries to reduce latency by 40%.
+                    <p class="mono" style="color: var(--text-muted);">
+                      Designed and scaled a ████████ architecture to handle high-throughput processing. Integrated ████ APIs and optimized queries to reduce latency by ██%.
                     </p>
                   </div>
                   <div class="project-tech-stack">
-                    <span class="mono">[ TECH_STACK ] : PYTHON // DJANGO // AWS // KUBERNETES</span>
+                    <span class="mono" style="opacity: 0.5;">[ TECH_STACK ] : PENDING_REVIEW</span>
                   </div>
                 </div>
-              </a>
+              </div>
             </div>
 
           </div>

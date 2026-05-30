@@ -270,4 +270,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const maskedElements = document.querySelectorAll('.mask');
   maskedElements.forEach(el => observer.observe(el));
 
+  // --- Project Filtering Logic ---
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectRows = document.querySelectorAll('.project-row');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterBtns.forEach(b => b.classList.remove('active'));
+      // Add active class to clicked button
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      projectRows.forEach(row => {
+        if (filterValue === 'all') {
+          row.style.display = 'flex';
+          // re-trigger animation hack
+          const mask = row.querySelector('.mask');
+          if (mask) {
+            mask.classList.remove('visible');
+            setTimeout(() => mask.classList.add('visible'), 50);
+          }
+        } else {
+          if (row.getAttribute('data-category') === filterValue) {
+            row.style.display = 'flex';
+            const mask = row.querySelector('.mask');
+            if (mask) {
+              mask.classList.remove('visible');
+              setTimeout(() => mask.classList.add('visible'), 50);
+            }
+          } else {
+            row.style.display = 'none';
+          }
+        }
+      });
+      // Scroll to trigger observer if needed
+      window.dispatchEvent(new Event('scroll'));
+    });
+  });
+
 });
