@@ -150,6 +150,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
   }
 
+    // System Resources Logic
+    const cpuBar = document.getElementById('cpu-bar');
+    const cpuPct = document.getElementById('cpu-pct');
+    const memBar = document.getElementById('mem-bar');
+    const memPct = document.getElementById('mem-pct');
+
+    if (cpuBar && cpuPct && memBar && memPct) {
+      setInterval(() => {
+        const genBar = (percent) => {
+          const blocks = Math.floor(percent / 10);
+          return '■'.repeat(blocks) + '□'.repeat(10 - blocks);
+        };
+        
+        let newCpu = 65 + Math.floor(Math.random() * 20);
+        cpuBar.textContent = genBar(newCpu);
+        cpuPct.textContent = newCpu + '%';
+
+        let newMem = 42 + Math.floor(Math.random() * 8);
+        memBar.textContent = genBar(newMem);
+        memPct.textContent = newMem + '%';
+      }, 1200);
+    }
+
   bentoBoxes.forEach(box => {
     const glare = box.querySelector('.bento-glare');
     box.addEventListener('mousemove', (e) => {

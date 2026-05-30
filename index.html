@@ -101,11 +101,17 @@
                   <div class="bento-content heatmap-grid" id="bento-heatmap"></div>
                   <div class="bento-glare"></div>
                 </div>
-                <!-- Marquee Box -->
-                <div class="bento-box marquee-box">
-                  <div class="marquee-content mono">
-                    <span>> git commit -m "optimized postgres pipeline" // > merged branch 'feature/analytics' // > deployed to production // > all tests passed // > git push origin main // </span>
-                    <span>> git commit -m "optimized postgres pipeline" // > merged branch 'feature/analytics' // > deployed to production // > all tests passed // > git push origin main // </span>
+                <!-- System Resources Box -->
+                <div class="bento-box sys-box" style="grid-column: span 2; display: flex; flex-direction: row; justify-content: space-around; align-items: center; padding: 1rem 0;">
+                  <div class="sys-stat mono" style="display: flex; gap: 1rem; align-items: center; font-size: 0.85rem; color: var(--text-muted);">
+                    <span>CPU</span>
+                    <span id="cpu-bar" style="color: var(--brand-color); letter-spacing: 2px;">■■■■■■■□□□</span>
+                    <span id="cpu-pct" style="width: 35px; text-align: right;">72%</span>
+                  </div>
+                  <div class="sys-stat mono" style="display: flex; gap: 1rem; align-items: center; font-size: 0.85rem; color: var(--text-muted);">
+                    <span>MEM</span>
+                    <span id="mem-bar" style="color: var(--brand-color); letter-spacing: 2px;">■■■■■□□□□□</span>
+                    <span id="mem-pct" style="width: 35px; text-align: right;">48%</span>
                   </div>
                   <div class="bento-glare"></div>
                 </div>
