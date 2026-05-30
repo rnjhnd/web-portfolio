@@ -84,8 +84,33 @@
           
           <div class="hero-img-col mask">
             <div class="mask-inner delay-4">
-              <div class="ascii-container">
-                <pre id="ascii-sphere" class="mono"></pre>
+              <div class="bento-grid">
+                <!-- Status Box -->
+                <div class="bento-box status-box">
+                  <div class="bento-header mono">SYS_STATUS</div>
+                  <div class="bento-content">
+                    <span class="pulse-dot" style="background-color: #27c93f; box-shadow: 0 0 10px #27c93f;"></span>
+                    <span class="mono" style="font-size: 0.9rem;">OPEN_TO_WORK</span>
+                  </div>
+                </div>
+                <!-- Time Box -->
+                <div class="bento-box time-box">
+                  <div class="bento-header mono">LOCAL_TIME</div>
+                  <div class="bento-content mono" id="bento-time" style="font-size: 1.5rem; color: var(--brand-color);">00:00:00</div>
+                </div>
+                <!-- Heatmap Box -->
+                <div class="bento-box heatmap-box">
+                  <div class="bento-header mono">ACTIVITY_LOG</div>
+                  <div class="bento-content heatmap-grid" id="bento-heatmap">
+                  </div>
+                </div>
+                <!-- Marquee Box -->
+                <div class="bento-box marquee-box">
+                  <div class="marquee-content mono">
+                    <span>REACT NODE.JS PYTHON POSTGRESQL AWS DOCKER TYPESCRIPT GOLANG RUST GRAPHQL</span>
+                    <span>REACT NODE.JS PYTHON POSTGRESQL AWS DOCKER TYPESCRIPT GOLANG RUST GRAPHQL</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -379,25 +379,81 @@ h1, h2, h3 {
   position: relative;
 }
 
-/* ASCII Sphere Styles */
-.ascii-container {
+/* Bento Grid Styles */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 480px;
   margin: 15px auto;
 }
 
-#ascii-sphere {
-  font-family: var(--font-mono);
-  font-size: clamp(10px, 1.2vw, 14px);
-  line-height: 1.1;
+.bento-box {
+  background-color: #111;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.bento-header {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.bento-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.heatmap-box {
+  grid-column: span 2;
+}
+
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12px, 1fr));
+  gap: 4px;
+  width: 100%;
+}
+
+.heatmap-square {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background-color: #1a1a1a;
+  transition: opacity 0.3s ease;
+}
+
+.marquee-box {
+  grid-column: span 2;
+  padding: 0;
+  height: 40px;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
   color: var(--brand-color);
-  background: transparent;
-  white-space: pre;
-  text-align: center;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-  user-select: none;
+  font-size: 0.85rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 h1 {

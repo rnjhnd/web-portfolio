@@ -101,59 +101,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- ASCII Sphere Logic ---
-  const asciiContainer = document.getElementById('ascii-sphere');
-  if (asciiContainer) {
-    const chars = " .,-~:;=!*#$@";
-    let A = 0;
-    
-    const renderSphere = () => {
-      let b = [];
-      A += 0.04;
-      const width = 40;
-      const height = 20;
-      
-      const light = [Math.sin(A), Math.cos(A), -1];
-      const lightLen = Math.sqrt(light[0]*light[0] + light[1]*light[1] + light[2]*light[2]);
-      light[0] /= lightLen; light[1] /= lightLen; light[2] /= lightLen;
-      
-      for (let i = 0; i < width * height; i++) {
-        b[i] = ' ';
-      }
-      
-      for (let j = 0; j < height; j++) {
-        for (let i = 0; i < width; i++) {
-          let x = (i - width/2) / (width/2);
-          let y = (j - height/2) / (height/2);
-          let radiusSq = x*x + y*y;
-          
-          if (radiusSq < 1) {
-            let zCoord = Math.sqrt(1 - radiusSq);
-            let nx = x * Math.cos(A) - zCoord * Math.sin(A);
-            let ny = y;
-            let nz = x * Math.sin(A) + zCoord * Math.cos(A);
-            let L = nx * light[0] + ny * light[1] + nz * light[2];
-            
-            if (L > 0) {
-              let luminance = Math.floor(L * 12);
-              if (luminance > 12) luminance = 12;
-              b[i + j * width] = chars[luminance];
-            } else {
-               b[i + j * width] = chars[0];
-            }
-          }
-        }
-      }
-      
-      let output = "";
-      for (let j = 0; j < height; j++) {
-        output += b.slice(j * width, (j + 1) * width).join('') + '\n';
-      }
-      
-      asciiContainer.textContent = output;
-      requestAnimationFrame(renderSphere);
+  // --- Bento Box Logic ---
+  const bentoTime = document.getElementById('bento-time');
+  if (bentoTime) {
+    const updateTime = () => {
+      const now = new Date();
+      bentoTime.textContent = now.toLocaleTimeString('en-US', { hour12: false });
     };
-    renderSphere();
+    updateTime();
+    setInterval(updateTime, 1000);
+  }
+
+  const bentoHeatmap = document.getElementById('bento-heatmap');
+  if (bentoHeatmap) {
+    for (let i = 0; i < 84; i++) {
+      const square = document.createElement('div');
+      square.className = 'heatmap-square';
+      if (Math.random() > 0.6) {
+        square.style.backgroundColor = `rgba(39, 201, 63, ${Math.random() * 0.8 + 0.2})`;
+      }
+      bentoHeatmap.appendChild(square);
+    }
   }
 
   // --- Ambient Cursor Orb Logic ---
