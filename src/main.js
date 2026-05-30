@@ -101,91 +101,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Topology Canvas Logic ---
-  const canvas = document.getElementById('topology-canvas');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let width, height;
-    let time = 0;
-    
-    const resize = () => {
-      width = canvas.parentElement.clientWidth;
-      height = canvas.parentElement.clientHeight;
-      canvas.width = width;
-      canvas.height = height;
-    };
-    
-    window.addEventListener('resize', resize);
-    resize();
+  // --- Terminal Boot Logic ---
+  const terminal = document.getElementById('boot-terminal');
+  if (terminal) {
+    const bootSequence = [
+      { text: "> INITIALIZING KERNEL...", delay: 500, class: "" },
+      { text: "  [OK] KERNEL LOADED", delay: 200, class: "terminal-success" },
+      { text: "> MOUNTING FILE SYSTEMS...", delay: 400, class: "" },
+      { text: "  [OK] VFS MOUNTED", delay: 150, class: "terminal-success" },
+      { text: "> LOADING FRONTEND PROTOCOLS...", delay: 600, class: "" },
+      { text: "  [OK] REACT, NODE, POSTGRES DETECTED", delay: 200, class: "terminal-success" },
+      { text: "> ESTABLISHING NEURAL LINK...", delay: 700, class: "" },
+      { text: "  [WARN] LATENCY DETECTED, REROUTING", delay: 300, class: "terminal-warning" },
+      { text: "  [OK] LINK STABLE", delay: 150, class: "terminal-success" },
+      { text: "> COMPILING ARCHITECTURE...", delay: 500, class: "" },
+      { text: "  [OK] DONE", delay: 100, class: "terminal-success" },
+      { text: "> SYSTEM READY. WAITING FOR USER INPUT", delay: 800, class: "" }
+    ];
 
-    const cols = 22;
-    const rows = 18;
-    const scale = 25;
+    let currentLine = 0;
     
-    const animateTopology = () => {
-      ctx.clearRect(0, 0, width, height);
-      ctx.strokeStyle = 'rgba(39, 201, 63, 0.5)';
-      ctx.lineWidth = 1;
-      
-      time -= 0.02;
-      
-      let terrain = [];
-      let yOffset = time;
-      for (let y = 0; y < rows; y++) {
-        terrain[y] = [];
-        let xOffset = 0;
-        for (let x = 0; x < cols; x++) {
-          terrain[y][x] = Math.sin(xOffset) * Math.cos(yOffset) * 20 + Math.sin(xOffset * 0.5 + yOffset * 0.8) * 15;
-          xOffset += 0.4;
-        }
-        yOffset += 0.4;
-      }
-      
-      ctx.save();
-      ctx.translate(width / 2, height / 2 + 50);
-      
-      for (let y = 0; y < rows - 1; y++) {
-        ctx.beginPath();
-        for (let x = 0; x < cols; x++) {
-          let px1 = (x - cols/2) * scale;
-          let py1 = (y - rows/2) * scale;
-          let pz1 = terrain[y][x];
-          
-          let drawX1 = px1 - py1;
-          let drawY1 = (px1 + py1) / 2 - pz1;
-          
-          if (x === 0) ctx.moveTo(drawX1, drawY1);
-          else ctx.lineTo(drawX1, drawY1);
-        }
-        ctx.stroke();
+    const typeLine = () => {
+      if (currentLine < bootSequence.length) {
+        const lineData = bootSequence[currentLine];
         
-        ctx.beginPath();
-        for (let x = 0; x < cols; x++) {
-          let px1 = (x - cols/2) * scale;
-          let py1 = (y - rows/2) * scale;
-          let pz1 = terrain[y][x];
-          
-          let px2 = (x - cols/2) * scale;
-          let py2 = (y + 1 - rows/2) * scale;
-          let pz2 = terrain[y+1][x];
-          
-          let drawX1 = px1 - py1;
-          let drawY1 = (px1 + py1) / 2 - pz1;
-          
-          let drawX2 = px2 - py2;
-          let drawY2 = (px2 + py2) / 2 - pz2;
-          
-          ctx.moveTo(drawX1, drawY1);
-          ctx.lineTo(drawX2, drawY2);
-        }
-        ctx.stroke();
+        const oldCursor = terminal.querySelector('.terminal-cursor');
+        if (oldCursor) oldCursor.remove();
+        
+        const lineEl = document.createElement('div');
+        lineEl.className = `terminal-line ${lineData.class}`;
+        lineEl.textContent = lineData.text;
+        
+        const cursor = document.createElement('span');
+        cursor.className = 'terminal-cursor';
+        lineEl.appendChild(cursor);
+        
+        terminal.appendChild(lineEl);
+        terminal.scrollTop = terminal.scrollHeight;
+        
+        currentLine++;
+        setTimeout(typeLine, lineData.delay);
       }
-      
-      ctx.restore();
-      requestAnimationFrame(animateTopology);
     };
     
-    animateTopology();
+    setTimeout(typeLine, 800);
   }
 
   // --- Ambient Cursor Orb Logic ---
