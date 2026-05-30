@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrollPos = document.documentElement.scrollTop;
       const scrollPct = (scrollPos / scrollTotal) * 100;
-      progressBar.style.width = scrollPct + '%';
+      progressBar.style.height = scrollPct + '%';
     }
   });
 
@@ -354,32 +354,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.5 });
     
     contactObserver.observe(contactSection);
-
-    // Form Submission Fake Handler
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const submitBtn = document.getElementById('submit-btn');
-      const originalText = submitBtn.textContent;
-      
-      submitBtn.textContent = '[ TRANSMITTING... ]';
-      submitBtn.style.opacity = '0.7';
-      submitBtn.disabled = true;
-      
-      setTimeout(() => {
-        submitBtn.textContent = '[ MESSAGE_DELIVERED ]';
-        submitBtn.style.backgroundColor = '#27c93f';
-        submitBtn.style.color = '#000';
-        submitBtn.style.opacity = '1';
-        contactForm.reset();
-        
-        setTimeout(() => {
-          submitBtn.textContent = originalText;
-          submitBtn.style.backgroundColor = '';
-          submitBtn.style.color = '';
-          submitBtn.disabled = false;
-        }, 3000);
-      }, 1500);
-    });
   }
 
 });
