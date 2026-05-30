@@ -84,27 +84,35 @@
           
           <div class="hero-img-col mask">
             <div class="mask-inner delay-4">
-              <div class="badge-wrapper" id="badge-wrapper">
-                <div class="id-badge" id="id-badge">
-                  <div class="badge-glare" id="badge-glare"></div>
-                  <div class="badge-header mono">
-                    <span>// CLEARANCE: ALPHA</span>
+              <div class="bento-grid" id="bento-grid">
+                <!-- Status Box -->
+                <div class="bento-box status-box">
+                  <div class="bento-header mono">SYS_STATUS</div>
+                  <div class="bento-content">
                     <span class="pulse-dot" style="background-color: #27c93f; box-shadow: 0 0 10px #27c93f;"></span>
+                    <span class="mono" style="font-size: 0.9rem;">OPEN_TO_WORK</span>
                   </div>
-                  <div class="badge-body">
-                    <div class="badge-photo">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    </div>
-                    <div class="badge-info">
-                      <h3 class="badge-name">AREN JOHN ESOEN</h3>
-                      <p class="badge-role mono">SOFTWARE ENGINEER</p>
-                      <p class="badge-role mono">DATA ANALYST</p>
-                    </div>
+                  <div class="bento-glare"></div>
+                </div>
+                <!-- Time Box -->
+                <div class="bento-box time-box">
+                  <div class="bento-header mono">LOCAL_TIME</div>
+                  <div class="bento-content mono" id="bento-time" style="font-size: 1.5rem; color: var(--brand-color);">00:00:00:00</div>
+                  <div class="bento-glare"></div>
+                </div>
+                <!-- Heatmap Box -->
+                <div class="bento-box heatmap-box">
+                  <div class="bento-header mono">ACTIVITY_LOG</div>
+                  <div class="bento-content heatmap-grid" id="bento-heatmap"></div>
+                  <div class="bento-glare"></div>
+                </div>
+                <!-- Marquee Box -->
+                <div class="bento-box marquee-box">
+                  <div class="marquee-content mono">
+                    <span>REACT NODE.JS PYTHON POSTGRESQL AWS DOCKER TYPESCRIPT GOLANG RUST GRAPHQL</span>
+                    <span>REACT NODE.JS PYTHON POSTGRESQL AWS DOCKER TYPESCRIPT GOLANG RUST GRAPHQL</span>
                   </div>
-                  <div class="badge-footer mono">
-                    <div class="barcode">||| || ||| | || |||| ||</div>
-                    <span>ID: AE-9942</span>
-                  </div>
+                  <div class="bento-glare"></div>
                 </div>
               </div>
             </div>

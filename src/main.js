@@ -101,35 +101,80 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Holographic Badge Logic ---
-  const badgeWrapper = document.getElementById('badge-wrapper');
-  const badge = document.getElementById('id-badge');
-  const glare = document.getElementById('badge-glare');
-  
-  if (badgeWrapper && badge && glare) {
-    badgeWrapper.addEventListener('mousemove', (e) => {
-      const rect = badge.getBoundingClientRect();
+  // --- Improved Bento Logic ---
+  const bentoTime = document.getElementById('bento-time');
+  const bentoHeatmap = document.getElementById('bento-heatmap');
+  const bentoBoxes = document.querySelectorAll('.bento-box');
+
+  if (bentoTime) {
+    const updateTime = () => {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      const ms = String(now.getMilliseconds()).padStart(3, '0').slice(0, 2);
+      bentoTime.textContent = `${h}:${m}:${s}:${ms}`;
+      requestAnimationFrame(updateTime);
+    };
+    updateTime();
+  }
+
+  if (bentoHeatmap) {
+    for (let i = 0; i < 98; i++) {
+      const square = document.createElement('div');
+      square.className = 'heatmap-square';
+      bentoHeatmap.appendChild(square);
+    }
+    const squares = document.querySelectorAll('.heatmap-square');
+    
+    let offset = 0;
+    setInterval(() => {
+      squares.forEach((sq, i) => {
+        const x = i % 14;
+        const y = Math.floor(i / 14);
+        let noise = Math.sin((x + offset) * 0.5) * Math.cos((y + offset) * 0.3);
+        if (Math.random() > 0.95) noise = 1;
+        
+        if (noise > 0.6) sq.style.backgroundColor = '#27c93f';
+        else if (noise > 0.2) sq.style.backgroundColor = 'rgba(39, 201, 63, 0.5)';
+        else if (noise > -0.2) sq.style.backgroundColor = 'rgba(39, 201, 63, 0.2)';
+        else sq.style.backgroundColor = '#1a1a1a';
+      });
+      offset += 0.5;
+    }, 500);
+  }
+
+  bentoBoxes.forEach(box => {
+    const glare = box.querySelector('.bento-glare');
+    box.addEventListener('mousemove', (e) => {
+      const rect = box.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      const rotateX = ((y - centerY) / centerY) * -15;
-      const rotateY = ((x - centerX) / centerX) * 15;
+      const rotateX = ((y - centerY) / centerY) * -10;
+      const rotateY = ((x - centerX) / centerX) * 10;
       
-      badge.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      box.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      box.style.zIndex = "10";
       
-      const glareX = (x / rect.width) * 100;
-      const glareY = (y / rect.height) * 100;
-      glare.style.transform = `translate(-50%, -50%) translate(${glareX}%, ${glareY}%)`;
+      if (glare) {
+        const glareX = (x / rect.width) * 100;
+        const glareY = (y / rect.height) * 100;
+        glare.style.transform = `translate(-50%, -50%) translate(${glareX}%, ${glareY}%)`;
+      }
     });
     
-    badgeWrapper.addEventListener('mouseleave', () => {
-      badge.style.transform = `rotateX(0deg) rotateY(0deg)`;
-      glare.style.transform = `translate(-50%, -50%)`;
+    box.addEventListener('mouseleave', () => {
+      box.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      box.style.zIndex = "1";
+      if (glare) {
+        glare.style.transform = `translate(-50%, -50%)`;
+      }
     });
-  }
+  });
 
   // --- Ambient Cursor Orb Logic ---
   const ambientOrb = document.getElementById('ambient-orb');
