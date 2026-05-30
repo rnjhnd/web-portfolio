@@ -196,7 +196,9 @@ a {
 }
 
 .mask {
-  overflow: hidden;
+  /* Use clip-path instead of overflow: hidden to allow side shadows to bleed out 
+     while preserving the sharp bottom-edge reveal. */
+  clip-path: inset(-100px -100px 0 -100px);
   display: block;
 }
 

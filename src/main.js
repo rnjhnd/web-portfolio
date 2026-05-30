@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     document.querySelectorAll('.mask').forEach(el => {
       el.style.overflow = 'visible';
+      el.style.clipPath = 'none';
     });
   }, 2000);
 
