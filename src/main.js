@@ -9,99 +9,10 @@ injectSpeedInsights();
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Terminal Preloader Logic ---
-  const preloader = document.getElementById('preloader');
-  
-  if (sessionStorage.getItem('preloaderShown')) {
-    preloader.style.display = 'none';
-  } else {
-    // Disable scroll during preloader
-    document.body.style.overflow = 'hidden';
-
-  const terminalOutput = document.getElementById('terminal-output');
-  
-  const typeLine = (text, speed, callback, isSuccess = false) => {
-    const lineDiv = document.createElement('div');
-    lineDiv.className = 'terminal-line mono';
-    if (isSuccess) lineDiv.classList.add('success-text');
-    terminalOutput.appendChild(lineDiv);
-
-    const cursor = document.createElement('span');
-    cursor.className = 'block-cursor';
-    
-    let i = 0;
-    const interval = setInterval(() => {
-      lineDiv.textContent = text.substring(0, i + 1);
-      lineDiv.appendChild(cursor);
-      i++;
-      if (i >= text.length) {
-        clearInterval(interval);
-        cursor.remove();
-        setTimeout(callback, 30); 
-      }
-    }, speed);
-  };
-
-  const generateProgressBar = (callback) => {
-    const lineDiv = document.createElement('div');
-    lineDiv.className = 'terminal-line mono';
-    terminalOutput.appendChild(lineDiv);
-    
-    let progress = 0;
-    const totalBars = 20;
-    
-    const cursor = document.createElement('span');
-    cursor.className = 'block-cursor';
-
-    const interval = setInterval(() => {
-      progress += Math.floor(Math.random() * 3) + 1;
-      if (progress > totalBars) progress = totalBars;
-      
-      const filled = '█'.repeat(progress);
-      const empty = '░'.repeat(totalBars - progress);
-      const percent = Math.floor((progress / totalBars) * 100);
-      
-      lineDiv.textContent = `> [${filled}${empty}] ${percent}%`;
-      lineDiv.appendChild(cursor);
-      
-      if (progress >= totalBars) {
-        clearInterval(interval);
-        cursor.remove();
-        setTimeout(callback, 50);
-      }
-    }, 15);
-  };
-
-  // Boot sequence
-  const skipPreloader = () => {
-    if (preloader.classList.contains('hidden')) return;
-    preloader.classList.add('hidden');
-    document.body.style.overflow = ''; 
-    sessionStorage.setItem('preloaderShown', 'true');
-    setTimeout(() => {
-      window.dispatchEvent(new Event('scroll'));
-    }, 50);
-  };
-
-  window.addEventListener('click', skipPreloader, { once: true });
-  window.addEventListener('keydown', skipPreloader, { once: true });
-  window.addEventListener('touchstart', skipPreloader, { once: true });
-
+  // Trigger staggered animations instantly
   setTimeout(() => {
-    typeLine('> INITIALIZING SYSTEM...', 10, () => {
-      typeLine('> LOADING CORE MODULES...', 10, () => {
-        generateProgressBar(() => {
-          typeLine('> ESTABLISHING SECURE CONNECTION...', 10, () => {
-            typeLine('> ACCESS GRANTED.', 10, () => {
-              // Hide preloader
-              setTimeout(skipPreloader, 200); 
-            }, true);
-          });
-        });
-      });
-    });
-  }, 100);
-  }
+    window.dispatchEvent(new Event('scroll'));
+  }, 50);
 
   // --- Theme Toggle Logic ---
   const themeToggleBtn = document.getElementById('theme-toggle');
