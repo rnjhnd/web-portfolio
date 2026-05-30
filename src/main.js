@@ -14,6 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.dispatchEvent(new Event('scroll'));
   }, 50);
 
+  // Remove mask clipping after entrance animation completes so 3D transforms don't clip
+  setTimeout(() => {
+    document.querySelectorAll('.mask').forEach(el => {
+      el.style.overflow = 'visible';
+    });
+  }, 2000);
+
   // --- Theme Toggle Logic ---
   const themeToggleBtn = document.getElementById('theme-toggle');
   const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
@@ -137,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (noise > 0.6) sq.style.backgroundColor = '#27c93f';
         else if (noise > 0.2) sq.style.backgroundColor = 'rgba(39, 201, 63, 0.5)';
         else if (noise > -0.2) sq.style.backgroundColor = 'rgba(39, 201, 63, 0.2)';
-        else sq.style.backgroundColor = '#1a1a1a';
+        else sq.style.backgroundColor = '';
       });
       offset += 0.5;
     }, 500);
