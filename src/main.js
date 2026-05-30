@@ -243,30 +243,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Dynamic Scrolled Nav Bar & Progress ---
   const navBar = document.querySelector('nav');
-  const scrollRingWrapper = document.getElementById('scroll-ring-wrapper');
-  const scrollRingCircle = document.getElementById('scroll-ring-circle');
-  const scrollTopBtn = document.getElementById('scroll-top-btn');
+  const scrollBattery = document.getElementById('scroll-battery');
   
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       navBar.classList.add('scrolled');
-      if(scrollRingWrapper) scrollRingWrapper.classList.add('visible');
+      if(scrollBattery) scrollBattery.classList.add('visible');
     } else {
       navBar.classList.remove('scrolled');
-      if(scrollRingWrapper) scrollRingWrapper.classList.remove('visible');
+      if(scrollBattery) scrollBattery.classList.remove('visible');
     }
     
-    if (scrollRingCircle) {
+    if (scrollBattery) {
       const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrollPos = document.documentElement.scrollTop;
-      const scrollPct = scrollPos / scrollTotal;
-      const dashOffset = 283 - (283 * scrollPct);
-      scrollRingCircle.style.strokeDashoffset = dashOffset;
+      let scrollPct = scrollPos / scrollTotal;
+      if (scrollPct < 0) scrollPct = 0;
+      if (scrollPct > 1) scrollPct = 1;
+      
+      const segments = Array.from(scrollBattery.children);
+      const activeCount = Math.round(scrollPct * segments.length);
+      
+      segments.forEach((segment, index) => {
+        if (index < activeCount) {
+          segment.classList.add('active');
+        } else {
+          segment.classList.remove('active');
+        }
+      });
     }
   });
 
-  if (scrollRingWrapper) {
-    scrollRingWrapper.addEventListener('click', () => {
+  if (scrollBattery) {
+    scrollBattery.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
