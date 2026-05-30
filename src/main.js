@@ -17,12 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Theme Toggle Logic ---
   const themeToggleBtn = document.getElementById('theme-toggle');
   const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
-  
-  const getPreferredTheme = () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) return savedTheme;
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  };
 
   const setTheme = (theme) => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -32,7 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mobileThemeToggleBtn) mobileThemeToggleBtn.textContent = btnText;
   };
 
-  setTheme(getPreferredTheme());
+  // Initialize buttons based on the theme already set by the synchronous head script
+  const initialTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+  const initialBtnText = initialTheme === 'dark' ? '[ LIGHT_MODE ]' : '[ DARK_MODE ]';
+  themeToggleBtn.textContent = initialBtnText;
+  if (mobileThemeToggleBtn) mobileThemeToggleBtn.textContent = initialBtnText;
 
   const handleThemeToggle = () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
