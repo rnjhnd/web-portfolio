@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (i >= text.length) {
         clearInterval(interval);
         cursor.remove();
-        setTimeout(callback, 150); 
+        setTimeout(callback, 30); 
       }
     }, speed);
   };
@@ -67,34 +67,40 @@ document.addEventListener('DOMContentLoaded', () => {
       if (progress >= totalBars) {
         clearInterval(interval);
         cursor.remove();
-        setTimeout(callback, 200);
+        setTimeout(callback, 50);
       }
-    }, 40);
+    }, 15);
   };
 
   // Boot sequence
+  const skipPreloader = () => {
+    if (preloader.classList.contains('hidden')) return;
+    preloader.classList.add('hidden');
+    document.body.style.overflow = ''; 
+    sessionStorage.setItem('preloaderShown', 'true');
+    setTimeout(() => {
+      window.dispatchEvent(new Event('scroll'));
+    }, 50);
+  };
+
+  window.addEventListener('click', skipPreloader, { once: true });
+  window.addEventListener('keydown', skipPreloader, { once: true });
+  window.addEventListener('touchstart', skipPreloader, { once: true });
+
   setTimeout(() => {
-    typeLine('> INITIALIZING SYSTEM...', 30, () => {
-      typeLine('> LOADING CORE MODULES...', 20, () => {
+    typeLine('> INITIALIZING SYSTEM...', 10, () => {
+      typeLine('> LOADING CORE MODULES...', 10, () => {
         generateProgressBar(() => {
-          typeLine('> ESTABLISHING SECURE CONNECTION...', 30, () => {
-            typeLine('> ACCESS GRANTED.', 40, () => {
+          typeLine('> ESTABLISHING SECURE CONNECTION...', 10, () => {
+            typeLine('> ACCESS GRANTED.', 10, () => {
               // Hide preloader
-              setTimeout(() => {
-                preloader.classList.add('hidden');
-                document.body.style.overflow = ''; 
-                sessionStorage.setItem('preloaderShown', 'true');
-                
-                setTimeout(() => {
-                  window.dispatchEvent(new Event('scroll'));
-                }, 100);
-              }, 800); 
+              setTimeout(skipPreloader, 200); 
             }, true);
           });
         });
       });
     });
-  }, 400);
+  }, 100);
   }
 
   // --- Theme Toggle Logic ---
