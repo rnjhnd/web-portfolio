@@ -268,17 +268,12 @@ nav.scrolled {
 }
 
 .scroll-spy-link {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  text-decoration: none;
-  text-align: right;
-  letter-spacing: 0.15em;
   transition: all var(--trans-snap);
   pointer-events: auto;
   opacity: 0.4;
   position: relative;
-  padding-right: 1.2rem;
-  font-weight: 600;
+  width: 20px;
+  height: 20px;
 }
 
 .scroll-spy-link::after {
@@ -1467,13 +1462,11 @@ h2 {
 /* Placeholder Styling */
 .placeholder-card {
   border: 1px dashed var(--border-color);
-  background: transparent;
-  opacity: 0.8;
+  background: var(--nav-bg);
 }
 
 .placeholder-card:hover {
   border-style: solid;
-  opacity: 1;
 }
 
 .placeholder-content {
