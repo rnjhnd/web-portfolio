@@ -366,6 +366,7 @@ nav.scrolled {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   transition: color var(--trans-snap);
 }
 
@@ -1197,6 +1198,7 @@ h2 {
   color: var(--text-color);
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   transition: color var(--trans-snap);
 }
 
