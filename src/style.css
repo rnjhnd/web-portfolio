@@ -827,7 +827,7 @@ h2 {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   margin-top: 5rem;
 }
@@ -852,6 +852,13 @@ h2 {
   background-color: var(--bg-color);
   box-shadow: 6px 6px 0 0 var(--border-color);
   transition: all var(--trans-snap);
+}
+
+.project-card > .mask-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 .project-card:hover {
