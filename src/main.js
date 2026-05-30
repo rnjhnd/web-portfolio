@@ -112,8 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const h = String(now.getHours()).padStart(2, '0');
       const m = String(now.getMinutes()).padStart(2, '0');
       const s = String(now.getSeconds()).padStart(2, '0');
-      const ms = String(now.getMilliseconds()).padStart(3, '0').slice(0, 2);
-      bentoTime.textContent = `${h}:${m}:${s}:${ms}`;
+      bentoTime.textContent = `${h}:${m}:${s}`;
       requestAnimationFrame(updateTime);
     };
     updateTime();
