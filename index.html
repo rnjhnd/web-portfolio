@@ -6,8 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfolio of Aren John Esoen, Software Engineer & Data Analyst." />
     <title>Aren John Esoen | Portfolio</title>
+    <style>
+      @keyframes foucShieldFade {
+        0% { opacity: 1; }
+        60% { opacity: 1; }
+        100% { opacity: 0; visibility: hidden; }
+      }
+      .fouc-shield {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: #111827; z-index: 999999;
+        pointer-events: none;
+        animation: foucShieldFade 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+      }
+    </style>
   </head>
   <body>
+    <!-- CSS-Only FOUC Shield (Prevents empty flash before JS loads) -->
+    <div class="fouc-shield"></div>
     
     <!-- Ambient Interactive Background Elements -->
     <div class="ambient-orb" id="ambient-orb"></div>
