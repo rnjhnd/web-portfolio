@@ -101,50 +101,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Terminal Boot Logic ---
-  const terminal = document.getElementById('boot-terminal');
-  if (terminal) {
-    const bootSequence = [
-      { text: "> INITIALIZING KERNEL...", delay: 500, class: "" },
-      { text: "  [OK] KERNEL LOADED", delay: 200, class: "terminal-success" },
-      { text: "> MOUNTING FILE SYSTEMS...", delay: 400, class: "" },
-      { text: "  [OK] VFS MOUNTED", delay: 150, class: "terminal-success" },
-      { text: "> LOADING FRONTEND PROTOCOLS...", delay: 600, class: "" },
-      { text: "  [OK] REACT, NODE, POSTGRES DETECTED", delay: 200, class: "terminal-success" },
-      { text: "> ESTABLISHING NEURAL LINK...", delay: 700, class: "" },
-      { text: "  [WARN] LATENCY DETECTED, REROUTING", delay: 300, class: "terminal-warning" },
-      { text: "  [OK] LINK STABLE", delay: 150, class: "terminal-success" },
-      { text: "> COMPILING ARCHITECTURE...", delay: 500, class: "" },
-      { text: "  [OK] DONE", delay: 100, class: "terminal-success" },
-      { text: "> SYSTEM READY. WAITING FOR USER INPUT", delay: 800, class: "" }
-    ];
-
-    let currentLine = 0;
+  // --- Holographic Badge Logic ---
+  const badgeWrapper = document.getElementById('badge-wrapper');
+  const badge = document.getElementById('id-badge');
+  const glare = document.getElementById('badge-glare');
+  
+  if (badgeWrapper && badge && glare) {
+    badgeWrapper.addEventListener('mousemove', (e) => {
+      const rect = badge.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -15;
+      const rotateY = ((x - centerX) / centerX) * 15;
+      
+      badge.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      
+      const glareX = (x / rect.width) * 100;
+      const glareY = (y / rect.height) * 100;
+      glare.style.transform = `translate(-50%, -50%) translate(${glareX}%, ${glareY}%)`;
+    });
     
-    const typeLine = () => {
-      if (currentLine < bootSequence.length) {
-        const lineData = bootSequence[currentLine];
-        
-        const oldCursor = terminal.querySelector('.terminal-cursor');
-        if (oldCursor) oldCursor.remove();
-        
-        const lineEl = document.createElement('div');
-        lineEl.className = `terminal-line ${lineData.class}`;
-        lineEl.textContent = lineData.text;
-        
-        const cursor = document.createElement('span');
-        cursor.className = 'terminal-cursor';
-        lineEl.appendChild(cursor);
-        
-        terminal.appendChild(lineEl);
-        terminal.scrollTop = terminal.scrollHeight;
-        
-        currentLine++;
-        setTimeout(typeLine, lineData.delay);
-      }
-    };
-    
-    setTimeout(typeLine, 800);
+    badgeWrapper.addEventListener('mouseleave', () => {
+      badge.style.transform = `rotateX(0deg) rotateY(0deg)`;
+      glare.style.transform = `translate(-50%, -50%)`;
+    });
   }
 
   // --- Ambient Cursor Orb Logic ---
