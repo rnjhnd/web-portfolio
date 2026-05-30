@@ -281,6 +281,8 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+      } else if (entry.boundingClientRect.top < 0) {
+        entry.target.classList.add('visible');
       } else {
         entry.target.classList.remove('visible');
       }
