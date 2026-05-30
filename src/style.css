@@ -836,7 +836,6 @@ h2 {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100%;
 }
 
 .project-card {
@@ -870,7 +869,7 @@ h2 {
 .project-actions {
   display: flex;
   gap: 1rem;
-  margin-top: auto;
+  margin-top: 1.5rem;
 }
 
 .project-btn {
@@ -1205,7 +1204,7 @@ h2 {
   content: '';
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-color: var(--bg-color);
+  background-color: var(--text-color);
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform var(--trans-snap);
@@ -1213,7 +1212,7 @@ h2 {
 }
 
 .contact-btn:hover {
-  color: var(--text-color);
+  color: var(--bg-color);
 }
 .contact-btn:hover::before {
   transform: scaleY(1);
