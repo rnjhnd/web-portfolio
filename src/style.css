@@ -147,17 +147,16 @@ body {
 }
 
 .ambient-orb {
-  position: fixed;
-  top: 0; left: 0;
-  width: 40vw;
-  height: 40vw;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--orb-color) 0%, transparent 70%);
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 0;
-  transform: translate(-50%, -50%);
-  will-change: transform;
+    position: fixed;
+    top: -20vw; left: -20vw;
+    width: 40vw;
+    height: 40vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--orb-color) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform;
 }
 
 .noise-overlay {

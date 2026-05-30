@@ -109,8 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.matchMedia('(pointer: fine)').matches && ambientOrb) {
     document.addEventListener('mousemove', (e) => {
       ambientOrb.animate({
-        left: `${e.clientX}px`,
-        top: `${e.clientY}px`
+        transform: `translate(${e.clientX}px, ${e.clientY}px)`
       }, { duration: 1500, fill: "forwards", easing: "ease-out" });
     });
   }
