@@ -241,44 +241,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(section => sectionObserver.observe(section));
 
-  // --- Dynamic Scrolled Nav Bar & Progress ---
+  // --- Dynamic Scrolled Nav Bar & ScrollSpy ---
   const navBar = document.querySelector('nav');
-  const scrollBattery = document.getElementById('scroll-battery');
+  const scrollSpyLinks = document.querySelectorAll('.scroll-spy-link');
   
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       navBar.classList.add('scrolled');
-      if(scrollBattery) scrollBattery.classList.add('visible');
     } else {
       navBar.classList.remove('scrolled');
-      if(scrollBattery) scrollBattery.classList.remove('visible');
     }
     
-    if (scrollBattery) {
-      const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPos = document.documentElement.scrollTop;
-      let scrollPct = scrollPos / scrollTotal;
-      if (scrollPct < 0) scrollPct = 0;
-      if (scrollPct > 1) scrollPct = 1;
-      
-      const segments = Array.from(scrollBattery.children);
-      const activeCount = Math.round(scrollPct * segments.length);
-      
-      segments.forEach((segment, index) => {
-        if (index < activeCount) {
-          segment.classList.add('active');
-        } else {
-          segment.classList.remove('active');
-        }
-      });
-    }
-  });
-
-  if (scrollBattery) {
-    scrollBattery.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    // ScrollSpy Logic
+    let currentSectionId = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
+        currentSectionId = section.getAttribute('id');
+      }
     });
-  }
+
+    scrollSpyLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-section') === currentSectionId) {
+        link.classList.add('active');
+      }
+    });
+  });
 
   // --- Intersection Observer for Snappy Typographic Reveals ---
   const observerOptions = {
