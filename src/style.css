@@ -220,30 +220,24 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2.5rem;
+  padding: 2rem 4vw;
   position: fixed;
-  top: 1.5rem; 
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 1200px;
-  border-radius: 50px;
-  z-index: 1001;
+  top: 0; left: 0; width: 100%;
+  z-index: 1001; /* Must be above mobile menu overlay */
   color: var(--text-color);
   background: transparent; 
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
-  border: 1px solid transparent;
-  transition: all var(--trans-smooth);
+  border-bottom: 1px solid transparent;
+  transition: padding var(--trans-smooth), background var(--trans-smooth), backdrop-filter var(--trans-smooth), border-color var(--trans-smooth);
 }
 
 nav.scrolled {
-  padding: 1rem 2.5rem;
+  padding: 1rem 4vw;
   background: var(--nav-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border-color);
 }
 
 [data-theme="light"] nav.scrolled {
@@ -266,38 +260,6 @@ nav.scrolled {
   background: var(--brand-color);
   box-shadow: 0 0 10px var(--brand-color);
   transition: width 0.1s ease-out;
-}
-
-.logo-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.sys-status {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  letter-spacing: 0.1em;
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #27c93f;
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 8px #27c93f;
-  animation: pulse-dot 2s infinite;
-}
-
-@keyframes pulse-dot {
-  0% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
-  100% { opacity: 1; transform: scale(1); }
 }
 
 .logo {
@@ -1443,9 +1405,8 @@ h2 {
 }
 
 @media (max-width: 768px) {
-  nav { padding: 1rem 5vw; top: 1rem; width: 92%; }
-  nav.scrolled { padding: 0.8rem 5vw; }
-  .sys-status { display: none; }
+  nav { padding: 1.5rem 4vw; }
+  nav.scrolled { padding: 1rem 4vw; }
   .nav-links { display: none; }
   .mobile-menu-btn { display: block; }
   
