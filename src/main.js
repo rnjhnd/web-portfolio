@@ -241,13 +241,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(section => sectionObserver.observe(section));
 
-  // --- Dynamic Scrolled Nav Bar ---
+  // --- Dynamic Scrolled Nav Bar & Progress ---
   const navBar = document.querySelector('nav');
+  const progressBar = document.getElementById('scroll-progress');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       navBar.classList.add('scrolled');
     } else {
       navBar.classList.remove('scrolled');
+    }
+    
+    if (progressBar) {
+      const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPos = document.documentElement.scrollTop;
+      const scrollPct = (scrollPos / scrollTotal) * 100;
+      progressBar.style.width = scrollPct + '%';
     }
   });
 

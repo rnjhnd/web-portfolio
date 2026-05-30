@@ -240,7 +240,21 @@ nav.scrolled {
   border-bottom: 1px solid var(--border-color);
 }
 
+.scroll-progress-container {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+}
 
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--brand-color);
+  box-shadow: 0 0 10px var(--brand-color);
+}
 
 .logo {
   font-family: var(--font-display);
