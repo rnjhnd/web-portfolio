@@ -282,11 +282,9 @@ nav.scrolled {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--nav-bg);
-  border: 1px solid var(--text-muted);
+  width: 10px;
+  height: 2px;
+  background-color: var(--text-muted);
   transition: all var(--trans-snap);
 }
 
@@ -296,8 +294,8 @@ nav.scrolled {
 }
 
 .scroll-spy-link.active::after {
+  width: 20px;
   background-color: var(--brand-color);
-  border-color: var(--brand-color);
   box-shadow: 0 0 10px var(--brand-color);
 }
 
@@ -841,7 +839,9 @@ h2 {
 }
 
 .project-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   width: 100%;
   max-width: 900px;
   position: relative;
@@ -874,8 +874,8 @@ h2 {
   padding: 0.6rem 0.8rem;
   font-size: 0.8rem;
   border: 2px solid var(--text-color);
-  background-color: transparent;
-  color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--bg-color);
   text-decoration: none;
   transition: all var(--trans-snap);
   text-align: center;
@@ -883,18 +883,19 @@ h2 {
 }
 
 .project-btn:hover {
-  background-color: var(--text-color);
-  color: var(--bg-color);
+  background-color: transparent;
+  color: var(--text-color);
 }
 
 .project-btn.primary {
   border-color: var(--brand-color);
-  color: var(--brand-color);
+  background-color: var(--brand-color);
+  color: var(--bg-color);
 }
 
 .project-btn.primary:hover {
-  background-color: var(--brand-color);
-  color: #fff;
+  background-color: transparent;
+  color: var(--brand-color);
 }
 
 .project-header {
@@ -913,6 +914,7 @@ h2 {
 }
 
 .project-card-desc {
+  flex-grow: 1;
   margin-bottom: 0.8rem;
   padding: 1rem;
   border: 1px solid var(--border-color);
@@ -1184,8 +1186,8 @@ h2 {
   font-weight: 700;
   padding: 1rem 4rem;
   border: 2px solid var(--text-color);
-  background-color: transparent;
-  color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--bg-color);
   position: relative;
   overflow: hidden;
   transition: color var(--trans-snap);
@@ -1195,7 +1197,7 @@ h2 {
   content: '';
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-color: var(--text-color);
+  background-color: var(--bg-color);
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform var(--trans-snap);
@@ -1203,7 +1205,7 @@ h2 {
 }
 
 .contact-btn:hover {
-  color: var(--bg-color);
+  color: var(--text-color);
 }
 .contact-btn:hover::before {
   transform: scaleY(1);
