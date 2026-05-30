@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Dynamic Scrolled Nav Bar & Progress ---
   const navBar = document.querySelector('nav');
-  const progressBar = document.getElementById('scroll-progress');
+  const scrollHudText = document.getElementById('scroll-hud-text');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       navBar.classList.add('scrolled');
@@ -251,11 +251,11 @@ document.addEventListener('DOMContentLoaded', () => {
       navBar.classList.remove('scrolled');
     }
     
-    if (progressBar) {
+    if (scrollHudText) {
       const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrollPos = document.documentElement.scrollTop;
-      const scrollPct = (scrollPos / scrollTotal) * 100;
-      progressBar.style.height = scrollPct + '%';
+      const scrollPct = Math.round((scrollPos / scrollTotal) * 100);
+      scrollHudText.textContent = scrollPct + '%';
     }
   });
 
@@ -317,43 +317,5 @@ document.addEventListener('DOMContentLoaded', () => {
       window.dispatchEvent(new Event('scroll'));
     });
   });
-
-  // --- Contact Section Typewriter & Form ---
-  const contactSection = document.getElementById('contact');
-  const typewriterText = document.getElementById('typewriter-text');
-  const contactForm = document.getElementById('contact-form');
-  const connectionStatus = document.getElementById('connection-status');
-  
-  if (contactSection && typewriterText && contactForm) {
-    const textToType = 'system.connect(aren);';
-    let i = 0;
-    let hasTyped = false;
-
-    const contactObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !hasTyped) {
-          hasTyped = true;
-          
-          const typeWriter = setInterval(() => {
-            if (i < textToType.length) {
-              typewriterText.innerHTML += textToType.charAt(i);
-              i++;
-            } else {
-              clearInterval(typeWriter);
-              setTimeout(() => {
-                connectionStatus.innerHTML = '<span style="color: #27c93f;">[ CONNECTION ESTABLISHED ]</span>';
-                contactForm.style.display = 'block';
-                // Trigger reflow
-                void contactForm.offsetWidth;
-                contactForm.style.opacity = '1';
-              }, 800);
-            }
-          }, 100);
-        }
-      });
-    }, { threshold: 0.5 });
-    
-    contactObserver.observe(contactSection);
-  }
 
 });
