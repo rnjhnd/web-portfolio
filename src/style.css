@@ -967,6 +967,97 @@ h2 {
   50% { opacity: 0; }
 }
 
+.terminal-container {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-color);
+  box-shadow: 10px 10px 0 0 var(--border-color);
+  text-align: left;
+  position: relative;
+  transition: box-shadow var(--trans-snap), transform var(--trans-snap);
+}
+
+.terminal-container:hover {
+  box-shadow: 15px 15px 0 0 var(--brand-color);
+  transform: translate(-5px, -5px);
+}
+
+.terminal-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  z-index: 10;
+}
+
+[data-theme="light"] .terminal-container::before {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.3) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+.terminal-header {
+  background-color: var(--border-color);
+  color: var(--bg-color);
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.terminal-body {
+  padding: 2rem;
+}
+
+.terminal-prompts {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: var(--brand-color);
+}
+
+.terminal-input {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--brand-color);
+  padding: 1rem;
+  color: var(--text-color);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  outline: none;
+  transition: all var(--trans-snap);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.terminal-input:focus {
+  border-color: var(--brand-color);
+  box-shadow: 0 0 10px rgba(20, 100, 255, 0.2);
+  background: rgba(20, 100, 255, 0.05);
+}
+
 .contact-btn {
   display: inline-block;
   font-family: var(--font-display);

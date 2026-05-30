@@ -293,16 +293,41 @@
       <section id="contact" class="contact">
         <div class="container">
           <h2 class="mask"><span class="mask-inner">INITIATE CONTACT</span></h2>
-          <div class="mask">
-            <p class="mono mask-inner delay-1" style="margin-bottom: 0.5rem; color: var(--text-muted);">STATUS: <span style="color: var(--text-color); font-weight: 500;">WAITING_FOR_CONNECTION...</span></p>
-          </div>
-          <div class="mask">
-            <p class="mono mask-inner delay-2 terminal-prompt">
-              <span style="color: var(--orb-color);">></span> system.connect(aren);<span class="cursor">_</span>
-            </p>
-          </div>
-          <div class="mask" style="display: flex; gap: 2rem; justify-content: center; margin-top: 2rem;">
-            <a href="mailto:esoen.arenjohn@gmail.com" class="contact-btn mask-inner delay-3">SEND_MESSAGE</a>
+          
+          <div class="terminal-container mask">
+            <div class="terminal-header mask-inner delay-1">
+              <span class="mono">SECURE_CHANNEL // ENCRYPTED</span>
+            </div>
+            
+            <div class="terminal-body mask-inner delay-2">
+              <div class="terminal-prompts">
+                <p class="mono terminal-prompt" id="connection-status">
+                  <span style="color: var(--text-muted);">STATUS: WAITING_FOR_CONNECTION...</span>
+                </p>
+                <p class="mono terminal-prompt">
+                  <span style="color: var(--orb-color);">></span> <span id="typewriter-text"></span><span class="cursor" id="typewriter-cursor">_</span>
+                </p>
+              </div>
+              
+              <form id="contact-form" class="contact-form" style="display: none; opacity: 0; transition: opacity 1s; margin-top: 2rem;">
+                <div class="form-group mono">
+                  <label for="name">> INPUT_NAME</label>
+                  <input type="text" id="name" name="name" required class="terminal-input" placeholder="_">
+                </div>
+                
+                <div class="form-group mono">
+                  <label for="email">> INPUT_EMAIL</label>
+                  <input type="email" id="email" name="email" required class="terminal-input" placeholder="_">
+                </div>
+                
+                <div class="form-group mono">
+                  <label for="message">> TRANSMIT_MESSAGE</label>
+                  <textarea id="message" name="message" required class="terminal-input" rows="4" placeholder="_"></textarea>
+                </div>
+                
+                <button type="submit" class="contact-btn" id="submit-btn" style="margin-top: 1rem; width: 100%;">[ EXECUTE_TRANSMISSION ]</button>
+              </form>
+            </div>
           </div>
           
           <div class="mask social-links-wrapper delay-4">

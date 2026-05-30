@@ -310,4 +310,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // --- Contact Section Typewriter & Form ---
+  const contactSection = document.getElementById('contact');
+  const typewriterText = document.getElementById('typewriter-text');
+  const contactForm = document.getElementById('contact-form');
+  const connectionStatus = document.getElementById('connection-status');
+  
+  if (contactSection && typewriterText && contactForm) {
+    const textToType = 'system.connect(aren);';
+    let i = 0;
+    let hasTyped = false;
+
+    const contactObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasTyped) {
+          hasTyped = true;
+          
+          const typeWriter = setInterval(() => {
+            if (i < textToType.length) {
+              typewriterText.innerHTML += textToType.charAt(i);
+              i++;
+            } else {
+              clearInterval(typeWriter);
+              setTimeout(() => {
+                connectionStatus.innerHTML = '<span style="color: #27c93f;">[ CONNECTION ESTABLISHED ]</span>';
+                contactForm.style.display = 'block';
+                // Trigger reflow
+                void contactForm.offsetWidth;
+                contactForm.style.opacity = '1';
+              }, 800);
+            }
+          }, 100);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    contactObserver.observe(contactSection);
+
+    // Form Submission Fake Handler
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submit-btn');
+      const originalText = submitBtn.textContent;
+      
+      submitBtn.textContent = '[ TRANSMITTING... ]';
+      submitBtn.style.opacity = '0.7';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        submitBtn.textContent = '[ MESSAGE_DELIVERED ]';
+        submitBtn.style.backgroundColor = '#27c93f';
+        submitBtn.style.color = '#000';
+        submitBtn.style.opacity = '1';
+        contactForm.reset();
+        
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.style.backgroundColor = '';
+          submitBtn.style.color = '';
+          submitBtn.disabled = false;
+        }, 3000);
+      }, 1500);
+    });
+  }
+
 });
