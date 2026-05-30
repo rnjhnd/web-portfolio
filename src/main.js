@@ -89,6 +89,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   requestAnimationFrame(raf);
 
+  // Intercept anchor links for smooth scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          lenis.scrollTo(targetElement);
+        }
+      }
+    });
+  });
+
   // --- Ambient Cursor Orb Logic ---
   const ambientOrb = document.getElementById('ambient-orb');
   
