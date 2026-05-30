@@ -244,25 +244,66 @@ nav.scrolled {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-.scroll-hud {
+.scroll-ring-wrapper {
   position: fixed;
   bottom: 2rem;
-  left: 2vw;
+  right: 2vw;
+  width: 50px;
+  height: 50px;
   z-index: 1000;
-  color: var(--brand-color);
-  background: var(--nav-bg);
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--border-color);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--nav-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform var(--trans-snap), opacity var(--trans-snap);
+  opacity: 0;
+  pointer-events: none;
 }
 
-[data-theme="light"] .scroll-hud {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+[data-theme="light"] .scroll-ring-wrapper {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.scroll-ring-wrapper.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-ring-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+.scroll-ring {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: var(--border-color);
+  stroke-width: 4;
+}
+
+.ring-progress {
+  fill: none;
+  stroke: var(--brand-color);
+  stroke-width: 4;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.scroll-arrow {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 .logo {
@@ -1410,7 +1451,6 @@ h2 {
 @media (max-width: 768px) {
   nav { padding: 1.5rem 4vw; }
   nav.scrolled { padding: 1rem 4vw; }
-  .scroll-hud { display: none; }
   .nav-links { display: none; }
   .mobile-menu-btn { display: block; }
   

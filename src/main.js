@@ -243,21 +243,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Dynamic Scrolled Nav Bar & Progress ---
   const navBar = document.querySelector('nav');
-  const scrollHudText = document.getElementById('scroll-hud-text');
+  const scrollRingWrapper = document.getElementById('scroll-ring-wrapper');
+  const scrollRingCircle = document.getElementById('scroll-ring-circle');
+  const scrollTopBtn = document.getElementById('scroll-top-btn');
+  
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
       navBar.classList.add('scrolled');
+      if(scrollRingWrapper) scrollRingWrapper.classList.add('visible');
     } else {
       navBar.classList.remove('scrolled');
+      if(scrollRingWrapper) scrollRingWrapper.classList.remove('visible');
     }
     
-    if (scrollHudText) {
+    if (scrollRingCircle) {
       const scrollTotal = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrollPos = document.documentElement.scrollTop;
-      const scrollPct = Math.round((scrollPos / scrollTotal) * 100);
-      scrollHudText.textContent = scrollPct + '%';
+      const scrollPct = scrollPos / scrollTotal;
+      const dashOffset = 283 - (283 * scrollPct);
+      scrollRingCircle.style.strokeDashoffset = dashOffset;
     }
   });
+
+  if (scrollRingWrapper) {
+    scrollRingWrapper.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   // --- Intersection Observer for Snappy Typographic Reveals ---
   const observerOptions = {

@@ -27,9 +27,13 @@
     <div class="ambient-orb" id="ambient-orb"></div>
     <div class="noise-overlay"></div>
 
-    <!-- Scroll Progress HUD -->
-    <div class="scroll-hud">
-      <span class="mono">[ PAGE_Y : <span id="scroll-hud-text">0%</span> ]</span>
+    <!-- Modern Circular Scroll Progress -->
+    <div class="scroll-ring-wrapper" id="scroll-ring-wrapper">
+      <svg class="scroll-ring" viewBox="0 0 100 100">
+        <circle class="ring-bg" cx="50" cy="50" r="45"></circle>
+        <circle class="ring-progress" cx="50" cy="50" r="45" id="scroll-ring-circle"></circle>
+      </svg>
+      <span class="scroll-arrow" id="scroll-top-btn">↑</span>
     </div>
 
     <!-- Navigation -->
@@ -302,8 +306,16 @@
         <div class="container">
           <h2 class="mask"><span class="mask-inner">INITIATE CONTACT</span></h2>
           
-          <div class="mask contact-btn-wrapper delay-1" style="display: flex; justify-content: flex-start; margin-bottom: 4rem;">
-            <a href="mailto:esoen.arenjohn@gmail.com" class="contact-btn mask-inner" style="font-size: 1.5rem; padding: 1.5rem 3rem;">[ EXECUTE_TRANSMISSION ]</a>
+          <div class="mask">
+            <p class="mono mask-inner delay-1" style="margin-bottom: 0.5rem; color: var(--text-muted);">STATUS: <span style="color: var(--text-color); font-weight: 500;">WAITING_FOR_CONNECTION...</span></p>
+          </div>
+          <div class="mask">
+            <p class="mono mask-inner delay-2 terminal-prompt" style="margin-bottom: 2rem;">
+              <span style="color: var(--orb-color);">></span> system.connect(aren);<span class="cursor">_</span>
+            </p>
+          </div>
+          <div class="mask" style="display: flex; gap: 2rem; justify-content: center; margin-top: 1rem; margin-bottom: 4rem;">
+            <a href="mailto:esoen.arenjohn@gmail.com" class="contact-btn mask-inner delay-3">SEND_MESSAGE</a>
           </div>
           
           <div class="mask social-links-wrapper delay-4">
