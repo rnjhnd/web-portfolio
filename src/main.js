@@ -9,6 +9,12 @@ injectSpeedInsights();
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Force scroll to top on reload for cinematic entry
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   // Trigger staggered animations instantly
   setTimeout(() => {
     window.dispatchEvent(new Event('scroll'));
