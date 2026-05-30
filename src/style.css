@@ -473,6 +473,15 @@ h1, h2, h3 {
   align-items: center;
 }
 
+.tech-badge {
+  padding: 4px 10px;
+  background-color: rgba(39, 201, 63, 0.1);
+  border: 1px solid rgba(39, 201, 63, 0.3);
+  border-radius: 4px;
+  color: var(--brand-color);
+  white-space: nowrap;
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
