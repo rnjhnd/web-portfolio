@@ -355,7 +355,7 @@ nav.scrolled {
 }
 
 .theme-toggle-btn {
-  background: none;
+  background: var(--bg-color);
   border: 1px solid currentColor;
   color: currentColor;
   font-family: var(--font-mono);
@@ -836,6 +836,7 @@ h2 {
   display: flex;
   justify-content: center;
   width: 100%;
+  height: 100%;
 }
 
 .project-card {
@@ -862,7 +863,7 @@ h2 {
 .project-actions {
   display: flex;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: auto;
 }
 
 .project-btn {
@@ -874,8 +875,8 @@ h2 {
   padding: 0.6rem 0.8rem;
   font-size: 0.8rem;
   border: 2px solid var(--text-color);
-  background-color: var(--text-color);
-  color: var(--bg-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   text-decoration: none;
   transition: all var(--trans-snap);
   text-align: center;
@@ -883,19 +884,19 @@ h2 {
 }
 
 .project-btn:hover {
-  background-color: transparent;
-  color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--bg-color);
 }
 
 .project-btn.primary {
   border-color: var(--brand-color);
-  background-color: var(--brand-color);
-  color: var(--bg-color);
+  background-color: var(--bg-color);
+  color: var(--brand-color);
 }
 
 .project-btn.primary:hover {
-  background-color: transparent;
-  color: var(--brand-color);
+  background-color: var(--brand-color);
+  color: #fff;
 }
 
 .project-header {
@@ -1186,8 +1187,8 @@ h2 {
   font-weight: 700;
   padding: 1rem 4rem;
   border: 2px solid var(--text-color);
-  background-color: var(--text-color);
-  color: var(--bg-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   position: relative;
   overflow: hidden;
   transition: color var(--trans-snap);
