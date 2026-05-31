@@ -355,23 +355,36 @@ nav.scrolled {
   color: var(--text-color);
 }
 
-.nav-links a::after {
-  content: '';
+.nav-links a::before {
+  content: '[';
   position: absolute;
-  bottom: -4px;
-  left: 50%;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background-color: var(--brand-color);
-  transform: translateX(-50%) scale(0);
-  transition: transform var(--trans-snap), box-shadow var(--trans-snap);
-  box-shadow: 0 0 8px var(--orb-color);
+  left: -16px;
+  color: var(--brand-color);
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all var(--trans-snap);
+}
+
+.nav-links a::after {
+  content: ']';
+  position: absolute;
+  right: -16px;
+  color: var(--brand-color);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all var(--trans-snap);
+}
+
+.nav-links a:hover::before,
+.nav-links a.active::before {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .nav-links a:hover::after,
 .nav-links a.active::after {
-  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .theme-toggle-btn {
