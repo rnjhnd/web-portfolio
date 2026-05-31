@@ -205,7 +205,11 @@ a {
 .mask-inner {
   display: block;
   transform: translateY(110%);
-  transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1); 
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1); 
+}
+
+.project-card.mask-inner {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mask.visible .mask-inner {
@@ -439,6 +443,21 @@ h1, h2, h3 {
   font-size: clamp(3rem, 15cqw, 7.5rem);
   line-height: 1.1;
   margin-bottom: 0.5rem;
+}
+
+@keyframes textShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.hero-text-col h1 .mask-inner {
+  background: linear-gradient(90deg, var(--text-color) 0%, var(--text-color) 40%, var(--brand-color) 50%, var(--text-color) 60%, var(--text-color) 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: textShine 8s linear infinite;
+  display: inline-block;
 }
 
 .hero-img-col {
