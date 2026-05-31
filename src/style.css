@@ -806,6 +806,16 @@ h2 {
   display: flex;
   align-items: center;
   text-transform: uppercase;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.3s ease;
+}
+
+.skills-row:hover .skills-cell.header {
+  transform: translateX(10px);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="light"] .skills-row:hover .skills-cell.header {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .skills-cell.data {
@@ -819,6 +829,11 @@ h2 {
   gap: 0.6rem;
   align-items: center;
 }
+
+/* JSON Syntax Highlighting */
+.json-punct { color: var(--text-muted); }
+.json-key { color: var(--brand-color); }
+.json-val { color: var(--text-color); }
 
 .tech-pill {
   font-family: var(--font-mono);
