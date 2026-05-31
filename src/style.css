@@ -250,16 +250,19 @@ nav.scrolled {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-.scroll-spy-wrapper {
+.scroll-spy-container.mask {
   position: fixed;
   right: 2vw;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.scroll-spy-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  z-index: 1000;
-  pointer-events: none;
 }
 
 .scroll-spy-wrapper::before {
@@ -306,7 +309,7 @@ nav.scrolled {
 }
 
 @media (max-width: 1024px) {
-  .scroll-spy-wrapper { display: none; }
+  .scroll-spy-container { display: none; }
 }
 
 .logo {
@@ -443,21 +446,6 @@ h1, h2, h3 {
   font-size: clamp(3rem, 15cqw, 7.5rem);
   line-height: 1.1;
   margin-bottom: 0.5rem;
-}
-
-@keyframes textShine {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
-}
-
-.hero-text-col h1 .mask-inner {
-  background: linear-gradient(90deg, var(--text-color) 0%, var(--text-color) 40%, var(--brand-color) 50%, var(--text-color) 60%, var(--text-color) 100%);
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: textShine 8s linear infinite;
-  display: inline-block;
 }
 
 .hero-img-col {

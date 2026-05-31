@@ -28,11 +28,13 @@
     <div class="noise-overlay"></div>
 
     <!-- ScrollSpy Waypoint Indicator -->
-    <div class="scroll-spy-wrapper mono">
-      <a href="#hero" class="scroll-spy-link active" data-section="hero"></a>
-      <a href="#about" class="scroll-spy-link" data-section="about"></a>
-      <a href="#projects" class="scroll-spy-link" data-section="projects"></a>
-      <a href="#contact" class="scroll-spy-link" data-section="contact"></a>
+    <div class="scroll-spy-container mask">
+      <div class="scroll-spy-wrapper mono mask-inner delay-3">
+        <a href="#hero" class="scroll-spy-link active" data-section="hero"></a>
+        <a href="#about" class="scroll-spy-link" data-section="about"></a>
+        <a href="#projects" class="scroll-spy-link" data-section="projects"></a>
+        <a href="#contact" class="scroll-spy-link" data-section="contact"></a>
+      </div>
     </div>
 
     <!-- Navigation -->
@@ -173,10 +175,10 @@
             
             <div class="skills">
               <div class="mask">
-                <span class="mono mask-inner" style="display: block; margin-bottom: 1rem; color: var(--brand-color);">// TECH_STACK.JSON</span>
+                <span class="mono mask-inner delay-1" style="display: block; margin-bottom: 1rem; color: var(--brand-color);">// TECH_STACK.JSON</span>
               </div>
               <div class="mask">
-                <div class="skills-table mono mask-inner delay-1">
+                <div class="skills-table mono mask-inner delay-2">
                   <div class="skills-row"><div class="skills-cell header">{"key": "Data"}</div><div class="skills-cell data"><span class="tech-pill">Python</span><span class="tech-pill">Pandas</span><span class="tech-pill">SQL</span><span class="tech-pill">Tableau</span><span class="tech-pill">PowerBI</span></div></div>
                   <div class="skills-row"><div class="skills-cell header">{"key": "Frontend"}</div><div class="skills-cell data"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">Tailwind</span><span class="tech-pill">JavaScript</span><span class="tech-pill">TypeScript</span><span class="tech-pill">React</span></div></div>
                   <div class="skills-row"><div class="skills-cell header">{"key": "Backend"}</div><div class="skills-cell data"><span class="tech-pill">Node</span><span class="tech-pill">Express</span><span class="tech-pill">Django</span><span class="tech-pill">Flask</span><span class="tech-pill">REST</span></div></div>
