@@ -760,7 +760,7 @@ h2 {
 
 .skills-row {
   display: grid;
-  grid-template-columns: minmax(max-content, 35%) 1fr;
+  grid-template-columns: minmax(260px, 35%) 1fr;
   border-bottom: 1px solid var(--border-color);
   position: relative;
   transition: background-color var(--trans-snap), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
