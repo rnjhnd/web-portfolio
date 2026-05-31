@@ -418,8 +418,8 @@ h1, h2, h3 {
   position: absolute;
   top: 50%;
   left: 2vw;
-  transform: translateY(-50%) rotate(-90deg);
-  transform-origin: left center;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--text-muted);
