@@ -1521,7 +1521,7 @@ h2 {
     justify-content: center;
   }
   
-  .project-links {
+  .project-actions {
     flex-direction: column;
     width: 100%;
   }
