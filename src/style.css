@@ -416,7 +416,7 @@ h1, h2, h3 {
 
 .hero-coords {
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 2vw;
   transform: translateY(-50%) rotate(-90deg);
   transform-origin: left center;
