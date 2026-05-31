@@ -518,6 +518,7 @@ h1, h2, h3 {
 .bento-content {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -602,6 +603,8 @@ h1 {
   box-shadow: 0 0 8px var(--brand-color);
   animation: pulse 2s infinite ease-in-out;
   margin: 8px 12px;
+  flex-shrink: 0;
+  display: inline-block;
 }
 @keyframes pulse {
   0% { transform: scale(0.8); opacity: 0.5; }
@@ -1567,6 +1570,9 @@ h2 {
     gap: 1rem;
     align-items: stretch;
     padding: 1.5rem 1rem;
+  }
+  .sys-box .sys-stat {
+    justify-content: center;
   }
   .project-card {
     width: calc(100% - 6px);
