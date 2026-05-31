@@ -268,7 +268,7 @@ nav.scrolled {
 .scroll-spy-wrapper::before {
   content: '';
   position: absolute;
-  right: 3px;
+  right: 4px;
   top: 10px;
   bottom: 10px;
   width: 1px;
@@ -282,30 +282,41 @@ nav.scrolled {
   opacity: 0.4;
   position: relative;
   width: 20px;
-  height: 20px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .scroll-spy-link::after {
   content: '';
   position: absolute;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 10px;
-  height: 2px;
-  background-color: var(--text-muted);
-  transition: all var(--trans-snap);
+  width: 8px;
+  height: 8px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--text-muted);
+  transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
-.scroll-spy-link:hover, .scroll-spy-link.active {
-  color: var(--brand-color);
+.scroll-spy-link:hover {
+  opacity: 1;
+}
+
+.scroll-spy-link:hover::after {
+  height: 16px;
+  background-color: var(--text-color);
+  border-color: var(--text-color);
+}
+
+.scroll-spy-link.active {
   opacity: 1;
 }
 
 .scroll-spy-link.active::after {
-  width: 20px;
+  height: 32px;
   background-color: var(--brand-color);
-  box-shadow: 0 0 10px var(--brand-color);
+  border-color: var(--brand-color);
 }
 
 @media (max-width: 1024px) {
