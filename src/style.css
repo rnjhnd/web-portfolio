@@ -640,8 +640,15 @@ h1 {
 .scroll-tracker .mono {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
-  color: var(--text-muted);
+  color: var(--text-color);
+  animation: breathingText 2s infinite ease-in-out;
 }
+
+@keyframes breathingText {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; text-shadow: 0 0 8px var(--brand-color); }
+}
+
 .scroll-line {
   width: 1px;
   height: 80px;
@@ -654,7 +661,7 @@ h1 {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background-color: var(--text-color);
+  background: linear-gradient(to bottom, transparent, var(--brand-color) 50%, transparent);
   animation: flowDown 2s infinite cubic-bezier(0.65, 0, 0.35, 1);
 }
 @keyframes flowDown {
