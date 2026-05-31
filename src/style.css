@@ -418,17 +418,16 @@ h1, h2, h3 {
 }
 
 .hero-coords {
-  position: fixed;
-  top: 50vh;
+  position: absolute;
+  top: 50%;
   left: 2vw;
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--text-muted);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   opacity: 0.5;
-  z-index: 50;
 }
 
 .hero-content {
@@ -1472,6 +1471,7 @@ h2 {
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding-bottom: 0.5rem;
+    padding-right: 1.5rem; /* Reset padding to perfectly center */
     text-align: center;
     justify-content: center;
   }
