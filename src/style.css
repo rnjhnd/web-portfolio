@@ -465,6 +465,15 @@ h1, h2, h3 {
   perspective: 1000px;
 }
 
+.sys-box {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 0;
+}
+
 .bento-box {
   background-color: var(--surface-color);
   border: 1px solid var(--border-color);
@@ -1426,7 +1435,15 @@ h2 {
     width: 100%;
   }
   
-  .project-btn { width: 100%; text-align: center; }
+  .project-btn { 
+    width: 100%; 
+    text-align: center; 
+    font-size: clamp(0.7rem, 3.5vw, 0.9rem);
+    padding: 0.8rem 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   .skills-row { grid-template-columns: 1fr; }
   .skills-cell.header {
@@ -1543,6 +1560,14 @@ h2 {
   .about { padding: 10vh 0; }
   .projects { padding: 10vh 0; }
   .projects-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .bento-grid { grid-template-columns: 1fr; }
+  .sys-box {
+    grid-column: span 1;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+    padding: 1.5rem 1rem;
+  }
   .contact { padding: 10vh 0; }
 
   .project-img-wrapper {
