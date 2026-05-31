@@ -51,7 +51,7 @@ html, body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   transition: background-color var(--trans-smooth), color var(--trans-smooth);
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
 }
 
@@ -436,7 +436,7 @@ h1, h2, h3 {
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   position: relative;
@@ -1472,8 +1472,8 @@ h2 {
 @media (max-width: 1024px) {
   .hero {
     min-height: auto;
-    padding-top: 18vh;
-    padding-bottom: 12vh;
+    padding-top: 18svh;
+    padding-bottom: 12svh;
   }
   .hero-content {
     grid-template-columns: 1fr;
