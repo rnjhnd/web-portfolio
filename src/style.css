@@ -345,9 +345,10 @@ nav.scrolled {
   text-transform: uppercase;
   position: relative;
   overflow: visible;
-  padding-bottom: 0.2rem;
   color: var(--text-muted);
   transition: color var(--trans-snap);
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a:hover,
@@ -1432,6 +1433,40 @@ h2 {
   color: var(--text-color);
   text-transform: uppercase;
   letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+.mobile-link::before {
+  content: '[';
+  position: absolute;
+  left: -1em;
+  color: var(--brand-color);
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all var(--trans-snap);
+}
+
+.mobile-link::after {
+  content: ']';
+  position: absolute;
+  right: -1em;
+  color: var(--brand-color);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all var(--trans-snap);
+}
+
+.mobile-link:hover::before,
+.mobile-link:active::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-link:hover::after,
+.mobile-link:active::after {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 @media (max-width: 1024px) {
