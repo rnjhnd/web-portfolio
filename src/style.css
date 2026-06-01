@@ -507,8 +507,8 @@ h1, h2, h3 {
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: 1.5rem;
+  justify-content: center;
+  gap: 0.5rem;
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
   position: relative;
   overflow: hidden;
@@ -537,7 +537,6 @@ h1, h2, h3 {
 .bento-header {
   font-size: 0.7rem;
   color: var(--text-muted);
-  margin-bottom: 0.8rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -545,7 +544,7 @@ h1, h2, h3 {
 .bento-content {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.5rem;
 }
 
