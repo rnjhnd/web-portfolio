@@ -1221,6 +1221,17 @@ h2 {
   font-size: 1.8rem;
   line-height: 1.1;
   word-wrap: break-word;
+  text-transform: none;
+}
+
+.project-subtitle {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  letter-spacing: 0.02em;
 }
 
 .data-tags {
