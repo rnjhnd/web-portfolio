@@ -795,7 +795,7 @@ h2 {
 
 .skills-row {
   display: grid;
-  grid-template-columns: minmax(260px, 35%) 1fr;
+  grid-template-columns: 165px 1fr;
   border-bottom: 1px solid var(--border-color);
   position: relative;
   transition: background-color var(--trans-snap), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
@@ -842,15 +842,19 @@ h2 {
   align-items: center;
   text-transform: uppercase;
   padding-right: 2.5rem;
+  overflow: hidden;
+}
+
+.skills-cell.header > * {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.3s ease;
 }
 
-.skills-row:hover .skills-cell.header {
-  transform: translateX(10px);
+.skills-row:hover .skills-cell.header > * {
+  transform: translateX(8px);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
-[data-theme="light"] .skills-row:hover .skills-cell.header {
+[data-theme="light"] .skills-row:hover .skills-cell.header > * {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
