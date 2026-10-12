@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (targetElement) {
           e.preventDefault();
           lenis.scrollTo(targetElement);
+          history.replaceState(null, '', targetId);
         }
       }
     });
