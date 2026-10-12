@@ -141,7 +141,7 @@ html.lenis { height: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 
-/* The rest of the CSS */
+/* Base Layout, Body & Global Utilities */
 body {
   position: relative;
   background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
