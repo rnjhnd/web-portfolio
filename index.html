@@ -95,42 +95,64 @@
           
           <div class="hero-img-col mask">
             <div class="mask-inner delay-4">
-              <div class="bento-grid" id="bento-grid">
-                <!-- Status Box -->
-                <div class="bento-box status-box">
-                  <div class="bento-header mono">SYS_STATUS</div>
-                  <div class="bento-content">
-                    <span class="pulse-dot" style="background-color: #27c93f; box-shadow: 0 0 10px #27c93f;"></span>
-                    <span class="mono" style="font-size: 0.9rem;">OPEN_TO_WORK</span>
+              <div class="terminal-spec-card" id="terminal-spec-card">
+                <div class="terminal-card-header">
+                  <div class="terminal-header-title mono">
+                    <span class="mono-prefix">//</span> SYS_PROFILE.LOG
                   </div>
-                  <div class="bento-glare"></div>
-                </div>
-                <!-- Time Box -->
-                <div class="bento-box time-box">
-                  <div class="bento-header mono">LOCAL_TIME</div>
-                  <div class="bento-content mono" id="bento-time" style="font-size: 1.5rem; color: var(--brand-color);">00:00:00:00</div>
-                  <div class="bento-glare"></div>
-                </div>
-                <!-- Heatmap Box -->
-                <div class="bento-box heatmap-box">
-                  <div class="bento-header mono">ACTIVITY_LOG</div>
-                  <div class="bento-content heatmap-grid" id="bento-heatmap"></div>
-                  <div class="bento-glare"></div>
-                </div>
-                <!-- System Resources Box -->
-                <div class="bento-box sys-box">
-                  <div class="sys-stat mono" style="display: flex; gap: 1rem; align-items: center; font-size: 0.85rem; color: var(--text-muted);">
-                    <span>CPU</span>
-                    <span id="cpu-bar" style="color: var(--brand-color); letter-spacing: 2px;">■■■■■■■□□□</span>
-                    <span id="cpu-pct" style="width: 35px; text-align: right;">72%</span>
+                  <div class="terminal-status-badge mono">
+                    <span class="pulse-dot" style="background-color: #27c93f; box-shadow: 0 0 8px #27c93f;"></span>
+                    <span>[ SESSION: ACTIVE ]</span>
                   </div>
-                  <div class="sys-stat mono" style="display: flex; gap: 1rem; align-items: center; font-size: 0.85rem; color: var(--text-muted);">
-                    <span>MEM</span>
-                    <span id="mem-bar" style="color: var(--brand-color); letter-spacing: 2px;">■■■■■□□□□□</span>
-                    <span id="mem-pct" style="width: 35px; text-align: right;">48%</span>
-                  </div>
-                  <div class="bento-glare"></div>
                 </div>
+                <div class="terminal-card-body mono">
+                  <div class="terminal-prompt-line">
+                    <span class="t-prompt">&gt;</span> <span class="t-cmd">system.inspect_profile()</span>
+                  </div>
+                  <div class="terminal-spec-grid">
+                    <div class="spec-row">
+                      <span class="spec-label">USER</span>
+                      <span class="spec-sep">:</span>
+                      <span class="spec-value">aren@esoen</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">ROLE</span>
+                      <span class="spec-sep">:</span>
+                      <span class="spec-value highlight">Full-Stack Software Engineer</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">ORIGIN</span>
+                      <span class="spec-sep">:</span>
+                      <span class="spec-value">Metro Manila, PH <span class="spec-tag">// UTC+8</span></span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">LOCAL_TIME</span>
+                      <span class="spec-sep">:</span>
+                      <span class="spec-value t-cyan" id="terminal-live-time">00:00:00</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">CORE_STACK</span>
+                      <span class="spec-sep">:</span>
+                      <span class="spec-value t-accent">React · Node · Express · PostgreSQL</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">STATUS</span>
+                      <span class="spec-sep">:</span>
+                      <span class="spec-value t-status"><span class="pulse-dot-small"></span> [ OPEN_TO_WORK ]</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">EDUCATION</span>
+                      <span class="spec-sep">:</span>
+                      <span class="spec-value">B.S. Computer Science [2026]</span>
+                    </div>
+                  </div>
+                  
+                  <div class="terminal-footer-telemetry">
+                    <span class="telemetry-item">// PROTOCOL: TLS_1.3</span>
+                    <span class="telemetry-item">[ REGION: AP-SOUTHEAST-1 ]</span>
+                  </div>
+                </div>
+                <div class="terminal-glare"></div>
               </div>
             </div>
           </div>

@@ -109,86 +109,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Improved Bento Logic ---
-  const bentoTime = document.getElementById('bento-time');
-  const bentoHeatmap = document.getElementById('bento-heatmap');
-  const bentoBoxes = document.querySelectorAll('.bento-box');
-
-  if (bentoTime) {
-    const updateTime = () => {
+  // --- Terminal Spec Card Live Time & 3D Tilt Logic ---
+  const terminalLiveTime = document.getElementById('terminal-live-time');
+  if (terminalLiveTime) {
+    const updateTerminalTime = () => {
       const now = new Date();
       const h = String(now.getHours()).padStart(2, '0');
       const m = String(now.getMinutes()).padStart(2, '0');
       const s = String(now.getSeconds()).padStart(2, '0');
-      bentoTime.textContent = `${h}:${m}:${s}`;
-      requestAnimationFrame(updateTime);
+      terminalLiveTime.textContent = `${h}:${m}:${s}`;
+      requestAnimationFrame(updateTerminalTime);
     };
-    updateTime();
+    updateTerminalTime();
   }
 
-  if (bentoHeatmap) {
-    for (let i = 0; i < 98; i++) {
-      const square = document.createElement('div');
-      square.className = 'heatmap-square';
-      bentoHeatmap.appendChild(square);
-    }
-    const squares = document.querySelectorAll('.heatmap-square');
-    
-    let offset = 0;
-    setInterval(() => {
-      squares.forEach((sq, i) => {
-        const x = i % 14;
-        const y = Math.floor(i / 14);
-        let noise = Math.sin((x + offset) * 0.5) * Math.cos((y + offset) * 0.3);
-        if (Math.random() > 0.95) noise = 1;
-        
-        if (noise > 0.6) sq.style.backgroundColor = '#27c93f';
-        else if (noise > 0.2) sq.style.backgroundColor = 'rgba(39, 201, 63, 0.5)';
-        else if (noise > -0.2) sq.style.backgroundColor = 'rgba(39, 201, 63, 0.2)';
-        else sq.style.backgroundColor = '';
-      });
-      offset += 0.5;
-    }, 500);
-  }
-
-    // System Resources Logic
-    const cpuBar = document.getElementById('cpu-bar');
-    const cpuPct = document.getElementById('cpu-pct');
-    const memBar = document.getElementById('mem-bar');
-    const memPct = document.getElementById('mem-pct');
-
-    if (cpuBar && cpuPct && memBar && memPct) {
-      setInterval(() => {
-        const genBar = (percent) => {
-          const blocks = Math.floor(percent / 10);
-          return '■'.repeat(blocks) + '□'.repeat(10 - blocks);
-        };
-        
-        let newCpu = 65 + Math.floor(Math.random() * 20);
-        cpuBar.textContent = genBar(newCpu);
-        cpuPct.textContent = newCpu + '%';
-
-        let newMem = 42 + Math.floor(Math.random() * 8);
-        memBar.textContent = genBar(newMem);
-        memPct.textContent = newMem + '%';
-      }, 1200);
-    }
-
-  bentoBoxes.forEach(box => {
-    const glare = box.querySelector('.bento-glare');
-    box.addEventListener('mousemove', (e) => {
-      const rect = box.getBoundingClientRect();
+  const terminalSpecCard = document.getElementById('terminal-spec-card');
+  if (terminalSpecCard) {
+    const glare = terminalSpecCard.querySelector('.terminal-glare');
+    terminalSpecCard.addEventListener('mousemove', (e) => {
+      const rect = terminalSpecCard.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      const rotateX = ((y - centerY) / centerY) * -10;
-      const rotateY = ((x - centerX) / centerX) * 10;
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
       
-      box.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-      box.style.zIndex = "10";
+      terminalSpecCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
       
       if (glare) {
         const glareX = (x / rect.width) * 100;
@@ -197,14 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     
-    box.addEventListener('mouseleave', () => {
-      box.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-      box.style.zIndex = "1";
+    terminalSpecCard.addEventListener('mouseleave', () => {
+      terminalSpecCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
       if (glare) {
         glare.style.transform = `translate(-50%, -50%)`;
       }
     });
-  });
+  }
 
   // --- Ambient Cursor Orb Logic ---
   const ambientOrb = document.getElementById('ambient-orb');
