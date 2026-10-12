@@ -320,7 +320,13 @@ nav.scrolled {
 }
 
 @media (max-width: 1024px) {
+  .hero-coords { display: none; }
+}
+
+/* Hide decorative chrome below true desktop width */
+@media (max-width: 1280px) {
   .scroll-spy-container { display: none; }
+  .hero-coords { display: none; }
 }
 
 .logo {
@@ -697,8 +703,9 @@ h1 {
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   color: var(--text-muted);
   font-weight: 400;
-  max-width: 650px;
+  max-width: 720px;
   line-height: 1.5;
+  text-wrap: balance;
 }
 
 .hero-subtitle .highlight {
@@ -1757,7 +1764,7 @@ h2 {
   .nav-links { display: none; }
   .mobile-menu-btn { display: block; }
   
-  .hero-coords { display: none; }
+  /* hero-coords already hidden at ≤1024px */
   .hero-subtitle { font-size: 1.1rem; }
   
   .about { padding: 10vh 0; }
