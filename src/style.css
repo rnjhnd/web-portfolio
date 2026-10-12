@@ -1151,8 +1151,10 @@ h2 {
   top: 0; left: 0; width: 100%; height: 100%;
   background-size: cover;
   background-position: center;
-  transform: scale(1);
-  transition: transform var(--trans-snap);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: filter var(--trans-snap);
 }
 
 /* Scanner Overlay */
@@ -1187,11 +1189,10 @@ h2 {
 }
 
 .project-card:hover .project-img-wrapper {
-  border: 1px solid var(--brand-color);
-  transform: scale(0.98);
+  border-color: var(--brand-color);
 }
 .project-card:hover .project-img-inner {
-  
+  filter: brightness(1.04);
 }
 .project-card:hover .scanner-overlay {
   opacity: 0;
