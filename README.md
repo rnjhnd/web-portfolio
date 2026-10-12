@@ -6,7 +6,6 @@ This repository contains the source code for my professional portfolio. Designed
 
 ## 🚀 Features
 - **Brutalist Telemetry Aesthetic**: Custom-built kinetic typography, CRT scanline effects, hard-offset shadows, and aggressive interactive hover states.
-- **Cinematic Boot Sequence**: A dynamic, pure CSS/JS terminal preloader featuring a blinking block cursor and ASCII progress generation.
 - **System Dashboard Navigation**: A responsive, auto-shrinking top bar with Intersection Observer logic that tracks the active viewing section like a live monitor.
 - **100% Fully Responsive**: Fluid typography clamps and custom mobile overlays ensure a flawless layout from ultra-wide 4K monitors down to 320px mobile screens.
 - **Light / Dark Mode**: Built-in, performant theme toggling logic using CSS variables.
