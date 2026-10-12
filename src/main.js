@@ -20,13 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.dispatchEvent(new Event('scroll'));
   }, 50);
 
-  // Remove mask clipping after entrance animation completes so 3D transforms don't clip
-  setTimeout(() => {
-    document.querySelectorAll('.mask').forEach(el => {
-      el.style.overflow = 'visible';
-      el.style.clipPath = 'none';
-    });
-  }, 2000);
+  // Mask clipping removal is handled per-element by the IntersectionObserver below
 
   // --- Theme Toggle Logic ---
   const themeToggleBtn = document.getElementById('theme-toggle');
@@ -277,21 +271,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Intersection Observer for Snappy Typographic Reveals ---
+  // --- Intersection Observer for Snappy Typographic Reveals (Trigger Once Per Session) ---
   const observerOptions = {
     root: null,
     rootMargin: '0px',
     threshold: 0.15 
   };
 
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
         entry.target.classList.add('visible');
-      } else if (entry.boundingClientRect.top < 0) {
-        entry.target.classList.add('visible');
-      } else {
-        entry.target.classList.remove('visible');
+        obs.unobserve(entry.target);
+
+        // Remove mask clipping after entrance animation completes so 3D transforms don't clip
+        if (entry.boundingClientRect.top < 0) {
+          entry.target.style.overflow = 'visible';
+          entry.target.style.clipPath = 'none';
+        } else {
+          setTimeout(() => {
+            entry.target.style.overflow = 'visible';
+            entry.target.style.clipPath = 'none';
+          }, 1500);
+        }
       }
     });
   }, observerOptions);
