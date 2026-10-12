@@ -1827,3 +1827,38 @@ h2 {
   38% { opacity: 0; }
   100% { opacity: 0; }
 }
+
+/* 5-Slide Carousel Support */
+.carousel-5 .carousel-img {
+  animation-name: carouselFade5;
+  animation-duration: 20s;
+}
+
+.carousel-5 .carousel-img:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.carousel-5 .carousel-img:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.carousel-5 .carousel-img:nth-child(3) {
+  animation-delay: 8s;
+}
+
+.carousel-5 .carousel-img:nth-child(4) {
+  animation-delay: 12s;
+}
+
+.carousel-5 .carousel-img:nth-child(5) {
+  animation-delay: 16s;
+}
+
+@keyframes carouselFade5 {
+  0% { opacity: 0; }
+  3% { opacity: 1; }
+  17% { opacity: 1; }
+  20% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
