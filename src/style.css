@@ -455,11 +455,12 @@ h1, h2, h3 {
   opacity: 0.5;
 }
 
+
 .hero-content {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: minmax(0, 1.15fr) minmax(460px, 0.85fr);
+  gap: 3.5rem;
   align-items: center;
 }
 
@@ -476,7 +477,7 @@ h1, h2, h3 {
 
 .hero-img-col {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   position: relative;
 }
 
