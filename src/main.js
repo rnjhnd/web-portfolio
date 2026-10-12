@@ -48,37 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
   themeToggleBtn.addEventListener('click', handleThemeToggle);
   if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener('click', handleThemeToggle);
 
-  // --- Mobile Menu Logic ---
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
-  let isMobileMenuOpen = false;
-
-  const toggleMobileMenu = () => {
-    isMobileMenuOpen = !isMobileMenuOpen;
-    mobileMenuBtn.classList.toggle('open', isMobileMenuOpen);
-    mobileMenuOverlay.classList.toggle('active', isMobileMenuOpen);
-    
-    // Prevent scrolling when menu is open
-    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
-    // Pause Lenis scrolling
-    if (isMobileMenuOpen) lenis.stop(); else lenis.start();
-  };
-
-  if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-  }
-
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (isMobileMenuOpen) toggleMobileMenu();
-    });
-  });
-
   // --- Initialize Lenis Smooth Scrolling ---
   const lenis = new Lenis({
     duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     direction: 'vertical',
     gestureDirection: 'vertical',
     smooth: true,
@@ -106,6 +79,33 @@ document.addEventListener('DOMContentLoaded', () => {
           lenis.scrollTo(targetElement);
         }
       }
+    });
+  });
+
+  // --- Mobile Menu Logic ---
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  let isMobileMenuOpen = false;
+
+  const toggleMobileMenu = () => {
+    isMobileMenuOpen = !isMobileMenuOpen;
+    mobileMenuBtn.classList.toggle('open', isMobileMenuOpen);
+    mobileMenuOverlay.classList.toggle('active', isMobileMenuOpen);
+
+    // Prevent scrolling when menu is open
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+    // Pause Lenis scrolling
+    if (isMobileMenuOpen) lenis.stop(); else lenis.start();
+  };
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+  }
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (isMobileMenuOpen) toggleMobileMenu();
     });
   });
 
