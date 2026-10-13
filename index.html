@@ -1,377 +1,433 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio of Aren John Esoen, Software Engineer & Data Analyst." />
-    <title>Aren John Esoen | Portfolio</title>
-    <!-- Prevent Flash of Incorrect Theme (FOIT) -->
-    <script>
-      (function() {
-        try {
-          var savedTheme = localStorage.getItem('theme');
-          if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-          } else {
-            var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-            document.documentElement.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
-          }
-        } catch (e) {}
-      })();
-    </script>
-  </head>
-  <body>
-    
-    <!-- Ambient Interactive Background Elements -->
-    <div class="ambient-orb" id="ambient-orb"></div>
-    <div class="noise-overlay"></div>
 
-    <!-- ScrollSpy Waypoint Indicator -->
-    <div class="scroll-spy-container mask">
-      <div class="scroll-spy-wrapper mono mask-inner delay-3">
-        <a href="#hero" class="scroll-spy-link active" data-section="hero"></a>
-        <a href="#about" class="scroll-spy-link" data-section="about"></a>
-        <a href="#projects" class="scroll-spy-link" data-section="projects"></a>
-        <a href="#contact" class="scroll-spy-link" data-section="contact"></a>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Aren John Esoen, Software Engineer & Data Analyst." />
+  <title>Aren John Esoen | Portfolio</title>
+  <!-- Prevent Flash of Incorrect Theme (FOIT) -->
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else {
+          var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+          document.documentElement.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
+        }
+      } catch (e) { }
+    })();
+  </script>
+</head>
+
+<body>
+
+  <!-- Ambient Interactive Background Elements -->
+  <div class="ambient-orb" id="ambient-orb"></div>
+  <div class="noise-overlay"></div>
+
+  <!-- ScrollSpy Waypoint Indicator -->
+  <div class="scroll-spy-container mask">
+    <div class="scroll-spy-wrapper mono mask-inner delay-3">
+      <a href="#hero" class="scroll-spy-link active" data-section="hero"></a>
+      <a href="#about" class="scroll-spy-link" data-section="about"></a>
+      <a href="#projects" class="scroll-spy-link" data-section="projects"></a>
+      <a href="#contact" class="scroll-spy-link" data-section="contact"></a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav-pill">
+    <div class="logo-wrapper">
+      <div class="logo">AE.</div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="nav-pill">
-      <div class="logo-wrapper">
-        <div class="logo">AE.</div>
-      </div>
-      
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Work</a>
-        <a href="#contact">Contact</a>
-        <button id="theme-toggle" class="theme-toggle-btn">
-          [ LIGHT_MODE ]
-        </button>
-      </div>
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Work</a>
+      <a href="#contact">Contact</a>
+      <button id="theme-toggle" class="theme-toggle-btn">
+        [ LIGHT_MODE ]
       </button>
-    </nav>
+    </div>
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </nav>
 
-    <!-- Main Content -->
-    <main>
-      <!-- Hero Section -->
-      <section id="hero" class="hero">
-        <!-- Coordinate Accent (Caloocan City / Metro Manila) -->
-        <div class="hero-coords mask">
-          <span class="mask-inner delay-4">[ LAT: 14.6507° N | LNG: 120.9841° E ]</span>
-        </div>
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <!-- Coordinate Accent (Caloocan City / Metro Manila) -->
+      <div class="hero-coords mask">
+        <span class="mask-inner delay-4">[ LAT: 14.6507° N | LNG: 120.9841° E ]</span>
+      </div>
 
-        <div class="container hero-content">
-          <div class="hero-text-col">
+      <div class="container hero-content">
+        <div class="hero-text-col">
 
-            <h1 class="mask">
-              <span class="mask-inner delay-1 hover-expand">BUILD.</span>
-            </h1>
-            <h1 class="mask">
-              <span class="mask-inner delay-2 hover-expand">DEPLOY.</span>
-            </h1>
-            <h1 class="mask">
-              <span class="mask-inner delay-3 hover-expand">ITERATE.</span>
-            </h1>
-            <div class="mask">
-              <p class="hero-subtitle mask-inner delay-4">
-                I am <span class="highlight">Aren John Esoen</span>, a Full-Stack Software Engineer who transforms ideas into <span class="highlight">production-ready web applications.</span>
-              </p>
-            </div>
-            
-            <div class="mask" style="margin-top: 2rem;">
-              <div class="hero-cta mask-inner delay-5" style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <a href="#projects" class="project-btn primary">[ VIEW_WORK ]</a>
-                <a href="#contact" class="project-btn">[ INITIATE_CONTACT ]</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="hero-img-col mask">
-            <div class="mask-inner delay-4">
-              <div class="terminal-spec-card" id="terminal-spec-card">
-                <div class="terminal-card-header">
-                  <div class="terminal-header-title mono">
-                    <span class="mono-prefix">//</span> SYS_PROFILE.LOG
-                  </div>
-                  <div class="terminal-status-badge mono">
-                    <span class="pulse-dot" style="background-color: #27c93f; box-shadow: 0 0 8px #27c93f;"></span>
-                    <span>[ SESSION: ACTIVE ]</span>
-                  </div>
-                </div>
-                <div class="terminal-card-body mono">
-                  <div class="terminal-prompt-line">
-                    <span class="t-prompt">&gt;</span> <span class="t-cmd">system.inspect_profile()</span>
-                  </div>
-                  <div class="terminal-spec-grid">
-                    <div class="spec-row">
-                      <span class="spec-label">USER</span>
-                      <span class="spec-sep">:</span>
-                      <span class="spec-value">aren@esoen</span>
-                    </div>
-                    <div class="spec-row">
-                      <span class="spec-label">ROLE</span>
-                      <span class="spec-sep">:</span>
-                      <span class="spec-value highlight">Full-Stack Software Engineer</span>
-                    </div>
-                    <div class="spec-row">
-                      <span class="spec-label">ORIGIN</span>
-                      <span class="spec-sep">:</span>
-                      <span class="spec-value">Metro Manila, PH <span class="spec-tag">// UTC+8</span></span>
-                    </div>
-                    <div class="spec-row">
-                      <span class="spec-label">LOCAL_TIME</span>
-                      <span class="spec-sep">:</span>
-                      <span class="spec-value t-cyan" id="terminal-live-time">00:00:00</span>
-                    </div>
-                    <div class="spec-row">
-                      <span class="spec-label">CORE_STACK</span>
-                      <span class="spec-sep">:</span>
-                      <span class="spec-value t-accent">React · Node · Express · PostgreSQL</span>
-                    </div>
-                    <div class="spec-row">
-                      <span class="spec-label">STATUS</span>
-                      <span class="spec-sep">:</span>
-                      <span class="spec-value t-status"><span class="pulse-dot-small"></span> [ OPEN_TO_WORK ]</span>
-                    </div>
-                    <div class="spec-row">
-                      <span class="spec-label">EDUCATION</span>
-                      <span class="spec-sep">:</span>
-                      <span class="spec-value">B.S. Computer Science [2026]</span>
-                    </div>
-                  </div>
-                  
-                  <div class="terminal-footer-telemetry">
-                    <span class="telemetry-item">// PROTOCOL: TLS_1.3</span>
-                    <span class="telemetry-item">[ REGION: AP-SOUTHEAST-1 ]</span>
-                  </div>
-                </div>
-                <div class="terminal-glare"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Scroll Tracker -->
-        <div class="scroll-tracker mask">
-          <div class="mask-inner delay-4">
-            <span class="mono">[ SCROLL_ ]</span>
-            <div class="scroll-line"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- About Section -->
-      <section id="about" class="about">
-        <div class="container">
-          <h2 class="mask"><span class="mask-inner">BACKGROUND</span></h2>
-          
-          <div class="about-grid">
-            <div class="about-text">
-              <div class="mask">
-                <span class="mono mask-inner" style="display: block; margin-bottom: 1rem; color: var(--text-color);">[ LOG_ENTRY: CORE_PROFILE ]</span>
-              </div>
-              <div class="mask"><p class="lead-text mask-inner delay-1 mono" style="font-size: 1rem;">SUBJECT: AREN JOHN ESOEN // BASED_IN: METRO MANILA</p></div>
-              <div class="mask"><p class="mask-inner delay-2">Focused on crafting responsive interfaces, scalable backend systems, and clean, reliable APIs with an emphasis on <span class="highlight">maintainability</span>.</p></div>
-              
-              <div class="execution-log mask" style="margin-top: 3rem;">
-                <span class="mono mask-inner delay-3" style="color: var(--brand-color); display: block; margin-bottom: 1.5rem;">[ CAREER_LOG ]</span>
-                
-                <div class="log-entry mask-inner delay-4">
-                  <div class="log-title">Quality Assurance & Web Development Intern <span style="opacity: 0.5;">// Highly Succeed Inc.</span></div>
-                  <div class="log-time">> OCT 2025 - JAN 2026</div>
-                  <div class="log-status">[ COMPLETED ]</div>
-                </div>
-                
-                <div class="log-entry mask-inner delay-5">
-                  <div class="log-title">Bachelor of Science in Computer Science <span style="opacity: 0.5;">// New Era University</span></div>
-                  <div class="log-time">> AUG 2022 - JUNE 2026</div>
-                  <div class="log-status">[ COMPLETED ]</div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="skills">
-              <div class="mask">
-                <span class="mono mask-inner delay-1" style="display: block; margin-bottom: 1rem; color: var(--brand-color);">// TECH_STACK.JSON</span>
-              </div>
-              <div class="mask">
-                <div class="skills-table mono mask-inner delay-2">
-                  <div class="skills-row"><div class="skills-cell header"><span class="json-key">"data"</span><span class="json-punct">:</span></div><div class="skills-cell data"><span class="tech-pill">Python</span><span class="tech-pill">Pandas</span><span class="tech-pill">SQL</span><span class="tech-pill">Tableau</span><span class="tech-pill">PowerBI</span></div></div>
-                  <div class="skills-row"><div class="skills-cell header"><span class="json-key">"frontend"</span><span class="json-punct">:</span></div><div class="skills-cell data"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">Tailwind</span><span class="tech-pill">JavaScript</span><span class="tech-pill">TypeScript</span><span class="tech-pill">React</span></div></div>
-                  <div class="skills-row"><div class="skills-cell header"><span class="json-key">"backend"</span><span class="json-punct">:</span></div><div class="skills-cell data"><span class="tech-pill">Node</span><span class="tech-pill">Express</span><span class="tech-pill">Prisma</span><span class="tech-pill">REST APIs</span></div></div>
-                  <div class="skills-row"><div class="skills-cell header"><span class="json-key">"database"</span><span class="json-punct">:</span></div><div class="skills-cell data"><span class="tech-pill">PostgreSQL</span><span class="tech-pill">MySQL</span><span class="tech-pill">Supabase</span><span class="tech-pill">Neon</span></div></div>
-                  <div class="skills-row"><div class="skills-cell header"><span class="json-key">"tools"</span><span class="json-punct">:</span></div><div class="skills-cell data"><span class="tech-pill">Git/GitHub</span><span class="tech-pill">VS Code</span><span class="tech-pill">Postman</span><span class="tech-pill">Jupyter</span><span class="tech-pill">Figma</span><span class="tech-pill">Vite</span><span class="tech-pill">Vercel</span></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects Section -->
-      <section id="projects" class="projects">
-        <div class="container">
-          <div class="mask"><span class="mono mask-inner" style="display: block; margin-bottom: 0.5rem;">[ SELECT * FROM RECENT_WORKS ]</span></div>
-          <h2 class="mask"><span class="mask-inner">PROJECTS</span></h2>
-          
-          <div class="projects-grid">
-            
-            <!-- Project 1 -->
-            <div class="project-row mask" data-category="frontend">
-              <div class="project-card mask-inner delay-1">
-                  <div class="project-header">
-                    <span class="mono live-status"><span class="pulse-dot"></span> [ STATUS: ONLINE ]</span>
-                  </div>
-                  <div class="project-img-wrapper">
-                    <div class="project-img-inner carousel-img" style="background-image: url('/asset-portal-bg-1.png');"></div>
-                    <div class="project-img-inner carousel-img" style="background-image: url('/asset-portal-bg-2.png');"></div>
-                    <div class="project-img-inner carousel-img" style="background-image: url('/asset-portal-bg-3.png');"></div>
-                    <div class="scanner-overlay">
-                    </div>
-                  </div>
-                  <div class="project-info">
-                    <span class="mono project-meta">// ID: 001</span>
-                    <h3>TrackIT</h3>
-                    <span class="project-subtitle mono">INTERNAL HARDWARE ASSET PORTAL</span>
-                  </div>
-                  <div class="project-card-desc">
-                    <p>
-                      Internal inventory management platform with role-based access control and live hardware tracking.
-                    </p>
-                  </div>
-                  <div class="project-tech-stack">
-                    <span class="mono">[ TECH_STACK ] : REACT // NODE.JS // POSTGRESQL // VERCEL</span>
-                  </div>
-                  <div class="project-actions">
-                    <a href="https://internal-asset-portal.vercel.app/" target="_blank" class="project-btn primary">[ LIVE_DEMO ]</a>
-                    <a href="https://github.com/rnjhnd/asset-tracker" target="_blank" class="project-btn">[ REPOSITORY ]</a>
-                  </div>
-              </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-row mask" data-category="fullstack">
-              <div class="project-card mask-inner delay-2">
-                  <div class="project-header">
-                    <span class="mono live-status"><span class="pulse-dot"></span> [ STATUS: ONLINE ]</span>
-                  </div>
-                  <div class="project-img-wrapper carousel-5">
-                    <div class="project-img-inner carousel-img" style="background-image: url('/neu-arrs-bg-1.png');"></div>
-                    <div class="project-img-inner carousel-img" style="background-image: url('/neu-arrs-bg-2.png');"></div>
-                    <div class="project-img-inner carousel-img" style="background-image: url('/neu-arrs-bg-3.png');"></div>
-                    <div class="project-img-inner carousel-img" style="background-image: url('/neu-arrs-bg-4.png');"></div>
-                    <div class="project-img-inner carousel-img" style="background-image: url('/neu-arrs-bg-5.png');"></div>
-                    <div class="scanner-overlay">
-                    </div>
-                  </div>
-                  <div class="project-info">
-                    <span class="mono project-meta">// ID: 002</span>
-                    <h3>NEU-ARRS</h3>
-                    <span class="project-subtitle mono">ACADEMIC RECORD REQUEST SYSTEM</span>
-                  </div>
-                  <div class="project-card-desc">
-                    <p>
-                      University document request portal featuring Clerk auth, PayMongo payments, and registrar queue management.
-                    </p>
-                  </div>
-                  <div class="project-tech-stack">
-                    <span class="mono">[ TECH_STACK ] : NEXT.JS // REACT // TYPESCRIPT // PRISMA // NEON // PAYMONGO</span>
-                  </div>
-                  <div class="project-actions">
-                    <a href="https://neu-arrs.vercel.app/" target="_blank" class="project-btn primary">[ LIVE_DEMO ]</a>
-                    <a href="https://github.com/rnjhnd/NEU-ARRS" target="_blank" class="project-btn">[ REPOSITORY ]</a>
-                  </div>
-              </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-row mask" data-category="frontend">
-              <div class="project-card placeholder-card mask-inner delay-4">
-                  <div class="project-header">
-                    <span class="mono live-status" style="opacity: 0.5;">[ STATUS: UNALLOCATED ]</span>
-                  </div>
-                  <div class="placeholder-content">
-                    <div class="spinner"></div>
-                    <span class="mono">[ AWAITING_PROJECT_DATA ]</span>
-                  </div>
-                  <div class="project-info">
-                    <span class="mono project-meta">// ID: 003</span>
-                    <h3>[ SYSTEM_SLOT_EMPTY ]</h3>
-                  </div>
-                  <div class="project-card-desc">
-                    <p class="mono" style="color: var(--text-muted);">
-                      Unallocated memory block reserved for upcoming system deployment.
-                    </p>
-                  </div>
-                  <div class="project-tech-stack">
-                    <span class="mono" style="opacity: 0.5;">[ TECH_STACK ] : N/A</span>
-                  </div>
-                  <div class="project-actions" style="opacity: 0.5; pointer-events: none;">
-                    <a href="#" class="project-btn primary">[ UNAVAILABLE ]</a>
-                    <a href="#" class="project-btn">[ UNAVAILABLE ]</a>
-                  </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section id="contact" class="contact">
-        <div class="container">
-          <h2 class="mask"><span class="mask-inner">INITIATE CONTACT</span></h2>
-          
+          <h1 class="mask">
+            <span class="mask-inner delay-1 hover-expand">BUILD.</span>
+          </h1>
+          <h1 class="mask">
+            <span class="mask-inner delay-2 hover-expand">DEPLOY.</span>
+          </h1>
+          <h1 class="mask">
+            <span class="mask-inner delay-3 hover-expand">ITERATE.</span>
+          </h1>
           <div class="mask">
-            <p class="mono mask-inner delay-1" style="margin-bottom: 0.5rem; color: var(--text-muted);">STATUS: <span style="color: var(--text-color); font-weight: 500;">WAITING_FOR_CONNECTION...</span></p>
-          </div>
-          <div class="mask">
-            <p class="mono mask-inner delay-2 terminal-prompt" style="margin-bottom: 2rem;">
-              <span style="color: var(--orb-color);">></span> system.connect(aren);<span class="cursor">_</span>
+            <p class="hero-subtitle mask-inner delay-4">
+              I am <span class="highlight">Aren John Esoen</span>, a Full-Stack Software Engineer who transforms ideas
+              into <span class="highlight">production-ready web applications.</span>
             </p>
           </div>
-          <div class="mask" style="display: flex; gap: 2rem; justify-content: center; margin-top: 1rem; margin-bottom: 4rem;">
-            <a href="mailto:esoen.arenjohn@gmail.com" class="contact-btn mask-inner delay-3">SEND_MESSAGE</a>
-          </div>
-          
-          <div class="mask social-links-wrapper delay-4">
-            <a href="https://github.com/rnjhnd" target="_blank" class="social-link mono mask-inner">
-              <span class="bracket">[</span> GITHUB <span class="bracket">]</span>
-            </a>
-            <a href="https://www.linkedin.com/in/rnjhnd/" target="_blank" class="social-link mono mask-inner">
-              <span class="bracket">[</span> LINKEDIN <span class="bracket">]</span>
-            </a>
+
+          <div class="mask" style="margin-top: 2rem;">
+            <div class="hero-cta mask-inner delay-5" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="#projects" class="project-btn primary">[ VIEW_WORK ]</a>
+              <a href="#contact" class="project-btn">[ INITIATE_CONTACT ]</a>
+            </div>
           </div>
         </div>
-      </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="footer-structural">
-      <div class="container mask">
-        <span class="mono mask-inner">&copy; 2026 AREN JOHN ESOEN. <span class="footer-sys-status">SYS_STATUS: ONLINE.</span></span>
-      </div>
-    </footer>
+        <div class="hero-img-col mask">
+          <div class="mask-inner delay-4">
+            <div class="terminal-spec-card" id="terminal-spec-card">
+              <div class="terminal-card-header">
+                <div class="terminal-header-title mono">
+                  <span class="mono-prefix">//</span> SYS_PROFILE.LOG
+                </div>
+                <div class="terminal-status-badge mono">
+                  <span class="pulse-dot" style="background-color: #27c93f; box-shadow: 0 0 8px #27c93f;"></span>
+                  <span>[ SESSION: ACTIVE ]</span>
+                </div>
+              </div>
+              <div class="terminal-card-body mono">
+                <div class="terminal-prompt-line">
+                  <span class="t-prompt">&gt;</span> <span class="t-cmd">system.inspect_profile()</span>
+                </div>
+                <div class="terminal-spec-grid">
+                  <div class="spec-row">
+                    <span class="spec-label">USER</span>
+                    <span class="spec-sep">:</span>
+                    <span class="spec-value">aren@esoen</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-label">ROLE</span>
+                    <span class="spec-sep">:</span>
+                    <span class="spec-value highlight">Full-Stack Software Engineer</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-label">ORIGIN</span>
+                    <span class="spec-sep">:</span>
+                    <span class="spec-value">Metro Manila, PH <span class="spec-tag">// UTC+8</span></span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-label">LOCAL_TIME</span>
+                    <span class="spec-sep">:</span>
+                    <span class="spec-value t-cyan" id="terminal-live-time">00:00:00</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-label">CORE_STACK</span>
+                    <span class="spec-sep">:</span>
+                    <span class="spec-value t-accent">React · Node · Express · PostgreSQL</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-label">STATUS</span>
+                    <span class="spec-sep">:</span>
+                    <span class="spec-value t-status"><span class="pulse-dot-small"></span> [ OPEN_TO_WORK ]</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-label">EDUCATION</span>
+                    <span class="spec-sep">:</span>
+                    <span class="spec-value">B.S. Computer Science [2026]</span>
+                  </div>
+                </div>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
-      <div class="mobile-menu-content">
-        <a href="#about" class="mobile-link">ABOUT</a>
-        <a href="#projects" class="mobile-link">WORK</a>
-        <a href="#contact" class="mobile-link">CONTACT</a>
-        <button id="mobile-theme-toggle" class="theme-toggle-btn mobile-theme-toggle" style="margin-top: 2rem;">
-          [ LIGHT_MODE ]
-        </button>
+                <div class="terminal-footer-telemetry">
+                  <span class="telemetry-item">// PROTOCOL: TLS_1.3</span>
+                  <span class="telemetry-item">[ REGION: AP-SOUTHEAST-1 ]</span>
+                </div>
+              </div>
+              <div class="terminal-glare"></div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Scroll Tracker -->
+      <div class="scroll-tracker mask">
+        <div class="mask-inner delay-4">
+          <span class="mono">[ SCROLL_ ]</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="mask"><span class="mask-inner">BACKGROUND</span></h2>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <div class="mask">
+              <span class="mono mask-inner" style="display: block; margin-bottom: 1rem; color: var(--text-color);">[
+                LOG_ENTRY: CORE_PROFILE ]</span>
+            </div>
+            <div class="mask">
+              <p class="lead-text mask-inner delay-1 mono" style="font-size: 1rem;">SUBJECT: AREN JOHN ESOEN //
+                BASED_IN: METRO MANILA</p>
+            </div>
+            <div class="mask">
+              <p class="mask-inner delay-2">Focused on crafting responsive interfaces, scalable backend systems, and
+                clean, reliable APIs with an emphasis on <span class="highlight">maintainability</span>.</p>
+            </div>
+
+            <div class="execution-log mask" style="margin-top: 3rem;">
+              <span class="mono mask-inner delay-3"
+                style="color: var(--brand-color); display: block; margin-bottom: 1.5rem;">[ CAREER_LOG ]</span>
+
+              <div class="log-entry mask-inner delay-4">
+                <div class="log-title">Quality Assurance & Web Development Intern <span style="opacity: 0.5;">// Highly
+                    Succeed Inc.</span></div>
+                <div class="log-time">> OCT 2025 - JAN 2026</div>
+                <div class="log-status">[ COMPLETED ]</div>
+              </div>
+
+              <div class="log-entry mask-inner delay-5">
+                <div class="log-title">Bachelor of Science in Computer Science <span style="opacity: 0.5;">// New Era
+                    University</span></div>
+                <div class="log-time">> AUG 2022 - JUNE 2026</div>
+                <div class="log-status">[ COMPLETED ]</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills">
+            <div class="mask">
+              <span class="mono mask-inner delay-1"
+                style="display: block; margin-bottom: 1rem; color: var(--brand-color);">// TECH_STACK.JSON</span>
+            </div>
+            <div class="mask">
+              <div class="skills-table mono mask-inner delay-2">
+                <div class="skills-row">
+                  <div class="skills-cell header"><span class="json-key">"data"</span><span class="json-punct">:</span>
+                  </div>
+                  <div class="skills-cell data"><span class="tech-pill">Python</span><span
+                      class="tech-pill">Pandas</span><span class="tech-pill">SQL</span><span
+                      class="tech-pill">Tableau</span><span class="tech-pill">PowerBI</span></div>
+                </div>
+                <div class="skills-row">
+                  <div class="skills-cell header"><span class="json-key">"frontend"</span><span
+                      class="json-punct">:</span></div>
+                  <div class="skills-cell data"><span class="tech-pill">HTML</span><span
+                      class="tech-pill">CSS</span><span class="tech-pill">Tailwind</span><span
+                      class="tech-pill">JavaScript</span><span class="tech-pill">TypeScript</span><span
+                      class="tech-pill">React</span></div>
+                </div>
+                <div class="skills-row">
+                  <div class="skills-cell header"><span class="json-key">"backend"</span><span
+                      class="json-punct">:</span></div>
+                  <div class="skills-cell data"><span class="tech-pill">Node</span><span
+                      class="tech-pill">Express</span><span class="tech-pill">Prisma</span><span class="tech-pill">REST
+                      APIs</span></div>
+                </div>
+                <div class="skills-row">
+                  <div class="skills-cell header"><span class="json-key">"database"</span><span
+                      class="json-punct">:</span></div>
+                  <div class="skills-cell data"><span class="tech-pill">PostgreSQL</span><span
+                      class="tech-pill">MySQL</span><span class="tech-pill">Supabase</span><span
+                      class="tech-pill">Neon</span></div>
+                </div>
+                <div class="skills-row">
+                  <div class="skills-cell header"><span class="json-key">"tools"</span><span class="json-punct">:</span>
+                  </div>
+                  <div class="skills-cell data"><span class="tech-pill">Git/GitHub</span><span class="tech-pill">VS
+                      Code</span><span class="tech-pill">Postman</span><span class="tech-pill">Jupyter</span><span
+                      class="tech-pill">Figma</span><span class="tech-pill">Vite</span><span
+                      class="tech-pill">Vercel</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <div class="mask"><span class="mono mask-inner" style="display: block; margin-bottom: 0.5rem;">[ SELECT * FROM
+            RECENT_WORKS ]</span></div>
+        <h2 class="mask"><span class="mask-inner">PROJECTS</span></h2>
+
+        <div class="projects-grid">
+
+          <!-- Project 1 -->
+          <div class="project-row mask" data-category="frontend">
+            <div class="project-card mask-inner delay-1">
+              <div class="project-header">
+                <span class="mono live-status"><span class="pulse-dot"></span> [ STATUS: ONLINE ]</span>
+              </div>
+              <div class="project-img-wrapper">
+                <div class="project-img-inner carousel-img" style="background-image: url('/asset-portal-bg-1.png');">
+                </div>
+                <div class="project-img-inner carousel-img" style="background-image: url('/asset-portal-bg-2.png');">
+                </div>
+                <div class="project-img-inner carousel-img" style="background-image: url('/asset-portal-bg-3.png');">
+                </div>
+                <div class="scanner-overlay">
+                </div>
+              </div>
+              <div class="project-info">
+                <span class="mono project-meta">// ID: 001</span>
+                <h3>TrackIT</h3>
+                <span class="project-subtitle mono">INTERNAL HARDWARE ASSET PORTAL</span>
+              </div>
+              <div class="project-card-desc">
+                <p>
+                  Internal inventory management platform with role-based access control and live hardware tracking.
+                </p>
+              </div>
+              <div class="project-tech-stack">
+                <span class="mono">[ TECH_STACK ] : REACT // NODE.JS // POSTGRESQL // VERCEL</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://trackit-portal.vercel.app/" target="_blank" class="project-btn primary">[
+                  LIVE_DEMO ]</a>
+                <a href="https://github.com/rnjhnd/TrackIT" target="_blank" class="project-btn">[ REPOSITORY ]</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-row mask" data-category="fullstack">
+            <div class="project-card mask-inner delay-2">
+              <div class="project-header">
+                <span class="mono live-status"><span class="pulse-dot"></span> [ STATUS: ONLINE ]</span>
+              </div>
+              <div class="project-img-wrapper carousel-5">
+                <div class="project-img-inner carousel-img" style="background-image: url('/neu-arrs-bg-1.png');"></div>
+                <div class="project-img-inner carousel-img" style="background-image: url('/neu-arrs-bg-2.png');"></div>
+                <div class="project-img-inner carousel-img" style="background-image: url('/neu-arrs-bg-3.png');"></div>
+                <div class="project-img-inner carousel-img" style="background-image: url('/neu-arrs-bg-4.png');"></div>
+                <div class="project-img-inner carousel-img" style="background-image: url('/neu-arrs-bg-5.png');"></div>
+                <div class="scanner-overlay">
+                </div>
+              </div>
+              <div class="project-info">
+                <span class="mono project-meta">// ID: 002</span>
+                <h3>NEU-ARRS</h3>
+                <span class="project-subtitle mono">ACADEMIC RECORD REQUEST SYSTEM</span>
+              </div>
+              <div class="project-card-desc">
+                <p>
+                  University document request portal featuring Clerk auth, PayMongo payments, and registrar queue
+                  management.
+                </p>
+              </div>
+              <div class="project-tech-stack">
+                <span class="mono">[ TECH_STACK ] : NEXT.JS // REACT // TYPESCRIPT // PRISMA // NEON // PAYMONGO</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://neu-arrs.vercel.app/" target="_blank" class="project-btn primary">[ LIVE_DEMO ]</a>
+                <a href="https://github.com/rnjhnd/NEU-ARRS" target="_blank" class="project-btn">[ REPOSITORY ]</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-row mask" data-category="frontend">
+            <div class="project-card placeholder-card mask-inner delay-4">
+              <div class="project-header">
+                <span class="mono live-status" style="opacity: 0.5;">[ STATUS: UNALLOCATED ]</span>
+              </div>
+              <div class="placeholder-content">
+                <div class="spinner"></div>
+                <span class="mono">[ AWAITING_PROJECT_DATA ]</span>
+              </div>
+              <div class="project-info">
+                <span class="mono project-meta">// ID: 003</span>
+                <h3>[ SYSTEM_SLOT_EMPTY ]</h3>
+              </div>
+              <div class="project-card-desc">
+                <p class="mono" style="color: var(--text-muted);">
+                  Unallocated memory block reserved for upcoming system deployment.
+                </p>
+              </div>
+              <div class="project-tech-stack">
+                <span class="mono" style="opacity: 0.5;">[ TECH_STACK ] : N/A</span>
+              </div>
+              <div class="project-actions" style="opacity: 0.5; pointer-events: none;">
+                <a href="#" class="project-btn primary">[ UNAVAILABLE ]</a>
+                <a href="#" class="project-btn">[ UNAVAILABLE ]</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="mask"><span class="mask-inner">INITIATE CONTACT</span></h2>
+
+        <div class="mask">
+          <p class="mono mask-inner delay-1" style="margin-bottom: 0.5rem; color: var(--text-muted);">STATUS: <span
+              style="color: var(--text-color); font-weight: 500;">WAITING_FOR_CONNECTION...</span></p>
+        </div>
+        <div class="mask">
+          <p class="mono mask-inner delay-2 terminal-prompt" style="margin-bottom: 2rem;">
+            <span style="color: var(--orb-color);">></span> system.connect(aren);<span class="cursor">_</span>
+          </p>
+        </div>
+        <div class="mask"
+          style="display: flex; gap: 2rem; justify-content: center; margin-top: 1rem; margin-bottom: 4rem;">
+          <a href="mailto:esoen.arenjohn@gmail.com" class="contact-btn mask-inner delay-3">SEND_MESSAGE</a>
+        </div>
+
+        <div class="mask social-links-wrapper delay-4">
+          <a href="https://github.com/rnjhnd" target="_blank" class="social-link mono mask-inner">
+            <span class="bracket">[</span> GITHUB <span class="bracket">]</span>
+          </a>
+          <a href="https://www.linkedin.com/in/rnjhnd/" target="_blank" class="social-link mono mask-inner">
+            <span class="bracket">[</span> LINKEDIN <span class="bracket">]</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-structural">
+    <div class="container mask">
+      <span class="mono mask-inner">&copy; 2026 AREN JOHN ESOEN. <span class="footer-sys-status">SYS_STATUS:
+          ONLINE.</span></span>
     </div>
+  </footer>
 
-    <script type="module" src="/src/main.js"></script>
-  </body>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+    <div class="mobile-menu-content">
+      <a href="#about" class="mobile-link">ABOUT</a>
+      <a href="#projects" class="mobile-link">WORK</a>
+      <a href="#contact" class="mobile-link">CONTACT</a>
+      <button id="mobile-theme-toggle" class="theme-toggle-btn mobile-theme-toggle" style="margin-top: 2rem;">
+        [ LIGHT_MODE ]
+      </button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
