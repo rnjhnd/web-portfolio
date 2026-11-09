@@ -641,13 +641,19 @@ h1, h2, h3 {
 
 .terminal-footer-telemetry {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  gap: 0.5rem 1rem;
   padding-top: 0.5rem;
   border-top: 1px dashed var(--border-color);
   font-size: 0.7rem;
   color: var(--text-muted);
   letter-spacing: 0.05em;
+}
+
+.telemetry-item {
+  white-space: nowrap;
 }
 
 .terminal-glare {
