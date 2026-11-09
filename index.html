@@ -460,7 +460,19 @@
 
   <dialog class="screenshot-viewer" id="screenshot-viewer" data-screenshot-viewer data-lenis-prevent aria-labelledby="screenshot-viewer-title">
     <div class="viewer-header">
-      <h2 class="mono" id="screenshot-viewer-title" data-viewer-title>Project preview</h2>
+      <div class="viewer-brand">
+        <span class="viewer-header-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="1" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="m21 15-5-5L5 21" />
+          </svg>
+        </span>
+        <div class="viewer-heading">
+          <span class="mono viewer-eyebrow">PROJECT PREVIEW</span>
+          <h2 class="mono" id="screenshot-viewer-title" data-viewer-title>Project</h2>
+        </div>
+      </div>
       <button type="button" class="viewer-button" data-viewer-close aria-label="Close screenshot viewer">[ CLOSE &#215; ]</button>
     </div>
     <div class="viewer-stage" data-viewer-stage tabindex="0" role="region" aria-label="Full screenshot">
