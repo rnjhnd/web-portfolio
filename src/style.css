@@ -1447,6 +1447,22 @@ h2 {
   transform: translateX(4px);
 }
 
+.footer-content {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+}
+
+.footer-copyright,
+.footer-sys-status {
+  margin: 0;
+  text-align: center;
+}
+
+.footer-content .footer-sys-status {
+  font-size: 0.7rem;
+}
+
 .footer-structural {
   padding: 3rem 0;
   text-align: center;
@@ -1793,10 +1809,6 @@ h2 {
     flex-direction: row;
     gap: 1.5rem;
     align-items: center;
-  }
-  .footer-sys-status {
-    display: block;
-    margin-top: 0.5rem;
   }
   
   .about, .projects {
