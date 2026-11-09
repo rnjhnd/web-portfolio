@@ -1786,6 +1786,11 @@ h2 {
   }
   .contact { padding: 10vh 0; }
 
+  .footer-sys-status {
+    display: block;
+    white-space: nowrap;
+  }
+
   .project-img-wrapper {
     aspect-ratio: 16/9;
   }
