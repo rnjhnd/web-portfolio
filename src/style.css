@@ -1157,8 +1157,9 @@ h2 {
 .project-img-inner {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-size: var(--preview-size, cover);
-  background-position: var(--preview-position, center);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   transition: filter var(--trans-snap);
 }
 
@@ -1808,25 +1809,6 @@ h2 {
 }
 
 /* Manual Project Galleries */
-#trackit-screenshots {
-  --preview-size: 140% auto;
-  --preview-position: center 25%;
-}
-
-#neu-arrs-screenshots {
-  --preview-size: 125% auto;
-  --preview-position: right top;
-}
-
-#neu-arrs-screenshots .carousel-img:first-child {
-  --preview-position: center top;
-}
-
-#gadget-clinic-screenshots {
-  --preview-size: 140% auto;
-  --preview-position: center top;
-}
-
 .project-img-wrapper[data-gallery-viewport] {
   touch-action: pan-y pinch-zoom;
 }
