@@ -1810,124 +1810,79 @@ h2 {
   }
 }
 
-/* Image Carousel Animations */
+/* Manual Project Galleries */
+.project-img-wrapper[data-gallery-viewport] {
+  touch-action: pan-y pinch-zoom;
+}
+
 .carousel-img {
   opacity: 0;
-  animation: carouselFade 12s infinite;
+  pointer-events: none;
+  transition: opacity var(--trans-smooth), filter var(--trans-snap);
 }
 
-.carousel-img:nth-child(1) {
-  animation-delay: 0s;
+.carousel-img.is-active {
+  opacity: 1;
 }
 
-.carousel-img:nth-child(2) {
-  animation-delay: 4s;
+.gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-color);
 }
 
-.carousel-img:nth-child(3) {
-  animation-delay: 8s;
+.gallery-controls[hidden] {
+  display: none;
 }
 
-@keyframes carouselFade {
-  0% { opacity: 0; }
-  5% { opacity: 1; }
-  33% { opacity: 1; }
-  38% { opacity: 0; }
-  100% { opacity: 0; }
+.gallery-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background-color var(--trans-snap), color var(--trans-snap);
 }
 
-/* 2-Slide Carousel Support */
-.carousel-2 .carousel-img {
-  animation-name: carouselFade2;
-  animation-duration: 8s;
+.gallery-button:first-child {
+  border-right: 1px solid var(--border-color);
 }
 
-.carousel-2 .carousel-img:nth-child(1) {
-  animation-delay: -0.4s;
+.gallery-button:last-child {
+  border-left: 1px solid var(--border-color);
 }
 
-.carousel-2 .carousel-img:nth-child(2) {
-  animation-delay: 3.6s;
+.gallery-button:hover {
+  background: var(--brand-color);
+  color: #fff;
 }
 
-@keyframes carouselFade2 {
-  0% { opacity: 0; }
-  5%, 50% { opacity: 1; }
-  55%, 100% { opacity: 0; }
+.gallery-button:focus-visible,
+.project-img-wrapper[data-gallery-viewport]:focus-visible {
+  outline: 2px solid var(--brand-color);
+  outline-offset: 3px;
+}
+
+.gallery-counter {
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-color);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .carousel-2 .carousel-img {
-    animation: none;
-    opacity: 0;
-  }
-
-  .carousel-2 .carousel-img:first-child {
-    opacity: 1;
+  .carousel-img {
+    transition: none;
   }
 }
-
-/* 4-Slide Carousel Support */
-.carousel-4 .carousel-img {
-  animation-name: carouselFade4;
-  animation-duration: 16s;
-}
-
-.carousel-4 .carousel-img:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.carousel-4 .carousel-img:nth-child(2) {
-  animation-delay: 4s;
-}
-
-.carousel-4 .carousel-img:nth-child(3) {
-  animation-delay: 8s;
-}
-
-.carousel-4 .carousel-img:nth-child(4) {
-  animation-delay: 12s;
-}
-
-@keyframes carouselFade4 {
-  0% { opacity: 0; }
-  3% { opacity: 1; }
-  22% { opacity: 1; }
-  25% { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-/* 5-Slide Carousel Support */
-.carousel-5 .carousel-img {
-  animation-name: carouselFade5;
-  animation-duration: 20s;
-}
-
-.carousel-5 .carousel-img:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.carousel-5 .carousel-img:nth-child(2) {
-  animation-delay: 4s;
-}
-
-.carousel-5 .carousel-img:nth-child(3) {
-  animation-delay: 8s;
-}
-
-.carousel-5 .carousel-img:nth-child(4) {
-  animation-delay: 12s;
-}
-
-.carousel-5 .carousel-img:nth-child(5) {
-  animation-delay: 16s;
-}
-
-@keyframes carouselFade5 {
-  0% { opacity: 0; }
-  3% { opacity: 1; }
-  17% { opacity: 1; }
-  20% { opacity: 0; }
-  100% { opacity: 0; }
-}
-

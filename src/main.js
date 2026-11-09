@@ -2,12 +2,15 @@ import './style.css';
 import Lenis from 'lenis';
 import { inject } from '@vercel/analytics';
 import { injectSpeedInsights } from '@vercel/speed-insights';
+import { initProjectGalleries } from './project-gallery.js';
 
 // Initialize Vercel Analytics & Speed Insights
 inject();
 injectSpeedInsights();
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  initProjectGalleries();
 
   // Force scroll to top on reload for cinematic entry
   if ('scrollRestoration' in history) {
