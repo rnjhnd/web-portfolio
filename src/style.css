@@ -1992,6 +1992,7 @@ html.viewer-open body {
 
 .viewer-heading {
   min-width: 0;
+  transform: translateY(2px);
 }
 
 .viewer-eyebrow {
