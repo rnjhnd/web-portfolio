@@ -288,7 +288,7 @@
                     data-full-src="/asset-portal-bg-4.png" style="background-image: url('/asset-portal-bg-4.png');"></div>
                   <div class="scanner-overlay" aria-hidden="true"></div>
                   <button type="button" class="gallery-expand" data-gallery-expand aria-label="Expand TrackIT screenshot" aria-haspopup="dialog" aria-controls="screenshot-viewer" hidden>
-                    <span class="mono">[ EXPAND &#8599; ]</span>
+                    <span aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5" /></svg></span>
                   </button>
                 </div>
                 <div class="gallery-controls" hidden>
@@ -338,7 +338,7 @@
                     data-full-src="/neu-arrs-bg-5.png" style="background-image: url('/neu-arrs-bg-5.png');"></div>
                   <div class="scanner-overlay" aria-hidden="true"></div>
                   <button type="button" class="gallery-expand" data-gallery-expand aria-label="Expand NEU-ARRS screenshot" aria-haspopup="dialog" aria-controls="screenshot-viewer" hidden>
-                    <span class="mono">[ EXPAND &#8599; ]</span>
+                    <span aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5" /></svg></span>
                   </button>
                 </div>
                 <div class="gallery-controls" hidden>
@@ -381,7 +381,7 @@
                     data-full-src="/gadget-clinic-bg-2.png" style="background-image: url('/gadget-clinic-bg-2.png');"></div>
                   <div class="scanner-overlay" aria-hidden="true"></div>
                   <button type="button" class="gallery-expand" data-gallery-expand aria-label="Expand Gadget Clinic screenshot" aria-haspopup="dialog" aria-controls="screenshot-viewer" hidden>
-                    <span class="mono">[ EXPAND &#8599; ]</span>
+                    <span aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5" /></svg></span>
                   </button>
                 </div>
                 <div class="gallery-controls" hidden>
@@ -472,7 +472,7 @@
       <h2 class="mono" id="screenshot-viewer-title" data-viewer-title>Project screenshots</h2>
       <button type="button" class="viewer-button" data-viewer-close aria-label="Close screenshot viewer">[ CLOSE &#215; ]</button>
     </div>
-    <div class="viewer-stage" data-viewer-stage tabindex="0" role="region" aria-label="Full screenshot; scroll to inspect at 100 percent">
+    <div class="viewer-stage" data-viewer-stage tabindex="0" role="region" aria-label="Full screenshot">
       <img class="viewer-image" data-viewer-image alt="" decoding="async" />
     </div>
     <div class="viewer-footer">
@@ -480,10 +480,6 @@
         <button type="button" class="gallery-button" data-viewer-prev aria-label="Previous full screenshot">&larr;</button>
         <span class="mono gallery-counter" data-viewer-counter role="status" aria-live="polite" aria-atomic="true"></span>
         <button type="button" class="gallery-button" data-viewer-next aria-label="Next full screenshot">&rarr;</button>
-      </div>
-      <div class="viewer-tools">
-        <button type="button" class="viewer-button" data-viewer-zoom aria-pressed="false" aria-controls="screenshot-viewer">[ 100% ]</button>
-        <a class="viewer-button" data-viewer-original target="_blank" rel="noopener noreferrer">[ OPEN ORIGINAL &#8599; ]</a>
       </div>
     </div>
   </dialog>

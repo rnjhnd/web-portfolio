@@ -1903,16 +1903,28 @@ h2 {
 }
 
 .gallery-expand span {
-  padding: 0.4rem 0.5rem;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
   border: 1px solid var(--text-color);
   background: var(--bg-color);
   color: var(--text-color);
-  font-size: 0.65rem;
+  opacity: 0;
+  transition: opacity var(--trans-snap);
 }
 
-.gallery-expand:hover span {
+.gallery-expand:hover span,
+.gallery-expand:focus-visible span {
+  opacity: 1;
   border-color: var(--brand-color);
   color: var(--brand-color);
+}
+
+@media (hover: none) {
+  .gallery-expand span {
+    opacity: 1;
+  }
 }
 
 html.viewer-open,
@@ -1975,23 +1987,17 @@ html.viewer-open body {
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: calc(100dvh - 12rem);
+  max-height: calc(100dvh - 11rem);
   margin: 0 auto;
   object-fit: contain;
 }
 
-.screenshot-viewer.is-zoomed .viewer-image {
-  max-width: none;
-  max-height: none;
-}
-
 .viewer-footer {
-  flex-wrap: wrap;
+  justify-content: center;
   border-top: 1px solid var(--border-color);
 }
 
-.viewer-navigation,
-.viewer-tools {
+.viewer-navigation {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -2022,16 +2028,6 @@ html.viewer-open body {
 .viewer-button:hover {
   background: var(--brand-color);
   color: #fff;
-}
-
-@media (max-width: 600px) {
-  .viewer-footer {
-    justify-content: center;
-  }
-
-  .viewer-image {
-    max-height: calc(100dvh - 16rem);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

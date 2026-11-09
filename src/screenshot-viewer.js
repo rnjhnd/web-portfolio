@@ -6,8 +6,6 @@ export function initScreenshotViewer(root = document) {
   const title = dialog.querySelector('[data-viewer-title]');
   const counter = dialog.querySelector('[data-viewer-counter]');
   const stage = dialog.querySelector('[data-viewer-stage]');
-  const original = dialog.querySelector('[data-viewer-original]');
-  const zoom = dialog.querySelector('[data-viewer-zoom]');
   const close = dialog.querySelector('[data-viewer-close]');
   let session = null;
 
@@ -17,10 +15,6 @@ export function initScreenshotViewer(root = document) {
     image.alt = slide.alt;
     title.textContent = `${session.title} screenshots`;
     counter.textContent = `${String(slide.index + 1).padStart(2, '0')} / ${String(slide.total).padStart(2, '0')}`;
-    original.href = slide.src;
-    dialog.classList.remove('is-zoomed');
-    zoom.setAttribute('aria-pressed', 'false');
-    zoom.textContent = '[ 100% ]';
     stage.scrollTop = 0;
     stage.scrollLeft = 0;
   };
@@ -60,12 +54,6 @@ export function initScreenshotViewer(root = document) {
     }
     event.preventDefault();
   });
-  zoom.addEventListener('click', () => {
-    const zoomed = dialog.classList.toggle('is-zoomed');
-    zoom.setAttribute('aria-pressed', String(zoomed));
-    zoom.textContent = zoomed ? '[ FIT ]' : '[ 100% ]';
-  });
-
   return {
     open(options) {
       session = options;
