@@ -1836,6 +1836,37 @@ h2 {
   100% { opacity: 0; }
 }
 
+/* 2-Slide Carousel Support */
+.carousel-2 .carousel-img {
+  animation-name: carouselFade2;
+  animation-duration: 8s;
+}
+
+.carousel-2 .carousel-img:nth-child(1) {
+  animation-delay: -0.4s;
+}
+
+.carousel-2 .carousel-img:nth-child(2) {
+  animation-delay: 3.6s;
+}
+
+@keyframes carouselFade2 {
+  0% { opacity: 0; }
+  5%, 50% { opacity: 1; }
+  55%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-2 .carousel-img {
+    animation: none;
+    opacity: 0;
+  }
+
+  .carousel-2 .carousel-img:first-child {
+    opacity: 1;
+  }
+}
+
 /* 4-Slide Carousel Support */
 .carousel-4 .carousel-img {
   animation-name: carouselFade4;
