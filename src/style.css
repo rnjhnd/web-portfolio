@@ -1157,11 +1157,8 @@ h2 {
 .project-img-inner {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-size: cover;
-  background-position: center;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  background-size: var(--preview-size, cover);
+  background-position: var(--preview-position, center);
   transition: filter var(--trans-snap);
 }
 
@@ -1811,6 +1808,25 @@ h2 {
 }
 
 /* Manual Project Galleries */
+#trackit-screenshots {
+  --preview-size: 140% auto;
+  --preview-position: center 25%;
+}
+
+#neu-arrs-screenshots {
+  --preview-size: 125% auto;
+  --preview-position: right top;
+}
+
+#neu-arrs-screenshots .carousel-img:first-child {
+  --preview-position: center top;
+}
+
+#gadget-clinic-screenshots {
+  --preview-size: 140% auto;
+  --preview-position: center top;
+}
+
 .project-img-wrapper[data-gallery-viewport] {
   touch-action: pan-y pinch-zoom;
 }
@@ -1870,6 +1886,9 @@ h2 {
 }
 
 .gallery-button:focus-visible,
+.gallery-expand:focus-visible,
+.viewer-button:focus-visible,
+.viewer-stage:focus-visible,
 .project-img-wrapper[data-gallery-viewport]:focus-visible {
   outline: 2px solid var(--brand-color);
   outline-offset: 3px;
@@ -1879,6 +1898,158 @@ h2 {
   font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
   color: var(--text-color);
+}
+
+.gallery-expand {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0.5rem;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.gallery-expand[hidden] {
+  display: none;
+}
+
+.gallery-expand:focus-visible {
+  outline-offset: -3px;
+}
+
+.gallery-expand span {
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--text-color);
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-size: 0.65rem;
+}
+
+.gallery-expand:hover span {
+  border-color: var(--brand-color);
+  color: var(--brand-color);
+}
+
+html.viewer-open,
+html.viewer-open body {
+  overflow: hidden;
+}
+
+.screenshot-viewer {
+  width: min(1600px, calc(100vw - 2rem));
+  max-width: none;
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  border: 2px solid var(--text-color);
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.screenshot-viewer[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.screenshot-viewer::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.viewer-header,
+.viewer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.viewer-header {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.viewer-header h2 {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  overflow-wrap: anywhere;
+}
+
+.viewer-stage {
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: var(--surface-color);
+}
+
+.viewer-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100dvh - 12rem);
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.screenshot-viewer.is-zoomed .viewer-image {
+  max-width: none;
+  max-height: none;
+}
+
+.viewer-footer {
+  flex-wrap: wrap;
+  border-top: 1px solid var(--border-color);
+}
+
+.viewer-navigation,
+.viewer-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.viewer-navigation {
+  border: 1px solid var(--border-color);
+}
+
+.viewer-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--trans-snap), color var(--trans-snap);
+}
+
+.viewer-button:hover {
+  background: var(--brand-color);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .viewer-footer {
+    justify-content: center;
+  }
+
+  .viewer-image {
+    max-height: calc(100dvh - 16rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -279,14 +279,17 @@
               <div class="project-gallery" data-project-gallery role="group" aria-roledescription="carousel" aria-label="TrackIT screenshots">
                 <div class="project-img-wrapper" id="trackit-screenshots" data-gallery-viewport>
                   <div class="project-img-inner carousel-img is-active" role="img" aria-label="TrackIT screenshot 1 of 4" aria-hidden="false"
-                    style="background-image: url('/asset-portal-bg-1.png');"></div>
+                    data-full-src="/asset-portal-bg-1.png" style="background-image: url('/asset-portal-bg-1.png');"></div>
                   <div class="project-img-inner carousel-img" role="img" aria-label="TrackIT screenshot 2 of 4" aria-hidden="true"
-                    style="background-image: url('/asset-portal-bg-2.png');"></div>
+                    data-full-src="/asset-portal-bg-2.png" style="background-image: url('/asset-portal-bg-2.png');"></div>
                   <div class="project-img-inner carousel-img" role="img" aria-label="TrackIT screenshot 3 of 4" aria-hidden="true"
-                    style="background-image: url('/asset-portal-bg-3.png');"></div>
+                    data-full-src="/asset-portal-bg-3.png" style="background-image: url('/asset-portal-bg-3.png');"></div>
                   <div class="project-img-inner carousel-img" role="img" aria-label="TrackIT screenshot 4 of 4" aria-hidden="true"
-                    style="background-image: url('/asset-portal-bg-4.png');"></div>
+                    data-full-src="/asset-portal-bg-4.png" style="background-image: url('/asset-portal-bg-4.png');"></div>
                   <div class="scanner-overlay" aria-hidden="true"></div>
+                  <button type="button" class="gallery-expand" data-gallery-expand aria-label="Expand TrackIT screenshot" aria-haspopup="dialog" aria-controls="screenshot-viewer" hidden>
+                    <span class="mono">[ EXPAND &#8599; ]</span>
+                  </button>
                 </div>
                 <div class="gallery-controls" hidden>
                   <button type="button" class="gallery-button" data-gallery-prev aria-label="Previous TrackIT screenshot" aria-controls="trackit-screenshots">&larr;</button>
@@ -324,16 +327,19 @@
               <div class="project-gallery" data-project-gallery role="group" aria-roledescription="carousel" aria-label="NEU-ARRS screenshots">
                 <div class="project-img-wrapper" id="neu-arrs-screenshots" data-gallery-viewport>
                   <div class="project-img-inner carousel-img is-active" role="img" aria-label="NEU-ARRS screenshot 1 of 5" aria-hidden="false"
-                    style="background-image: url('/neu-arrs-bg-1.png');"></div>
+                    data-full-src="/neu-arrs-bg-1.png" style="background-image: url('/neu-arrs-bg-1.png');"></div>
                   <div class="project-img-inner carousel-img" role="img" aria-label="NEU-ARRS screenshot 2 of 5" aria-hidden="true"
-                    style="background-image: url('/neu-arrs-bg-2.png');"></div>
+                    data-full-src="/neu-arrs-bg-2.png" style="background-image: url('/neu-arrs-bg-2.png');"></div>
                   <div class="project-img-inner carousel-img" role="img" aria-label="NEU-ARRS screenshot 3 of 5" aria-hidden="true"
-                    style="background-image: url('/neu-arrs-bg-3.png');"></div>
+                    data-full-src="/neu-arrs-bg-3.png" style="background-image: url('/neu-arrs-bg-3.png');"></div>
                   <div class="project-img-inner carousel-img" role="img" aria-label="NEU-ARRS screenshot 4 of 5" aria-hidden="true"
-                    style="background-image: url('/neu-arrs-bg-4.png');"></div>
+                    data-full-src="/neu-arrs-bg-4.png" style="background-image: url('/neu-arrs-bg-4.png');"></div>
                   <div class="project-img-inner carousel-img" role="img" aria-label="NEU-ARRS screenshot 5 of 5" aria-hidden="true"
-                    style="background-image: url('/neu-arrs-bg-5.png');"></div>
+                    data-full-src="/neu-arrs-bg-5.png" style="background-image: url('/neu-arrs-bg-5.png');"></div>
                   <div class="scanner-overlay" aria-hidden="true"></div>
+                  <button type="button" class="gallery-expand" data-gallery-expand aria-label="Expand NEU-ARRS screenshot" aria-haspopup="dialog" aria-controls="screenshot-viewer" hidden>
+                    <span class="mono">[ EXPAND &#8599; ]</span>
+                  </button>
                 </div>
                 <div class="gallery-controls" hidden>
                   <button type="button" class="gallery-button" data-gallery-prev aria-label="Previous NEU-ARRS screenshot" aria-controls="neu-arrs-screenshots">&larr;</button>
@@ -371,10 +377,13 @@
               <div class="project-gallery" data-project-gallery role="group" aria-roledescription="carousel" aria-label="Gadget Clinic screenshots">
                 <div class="project-img-wrapper" id="gadget-clinic-screenshots" data-gallery-viewport>
                   <div class="project-img-inner carousel-img is-active" role="img" aria-label="Gadget Clinic customer portal with repair booking and service registry" aria-hidden="false"
-                    style="background-image: url('/gadget-clinic-bg-1.png');"></div>
+                    data-full-src="/gadget-clinic-bg-1.png" style="background-image: url('/gadget-clinic-bg-1.png');"></div>
                   <div class="project-img-inner carousel-img" role="img" aria-label="Gadget Clinic admin command deck with service requests and repair status controls" aria-hidden="true"
-                    style="background-image: url('/gadget-clinic-bg-2.png');"></div>
+                    data-full-src="/gadget-clinic-bg-2.png" style="background-image: url('/gadget-clinic-bg-2.png');"></div>
                   <div class="scanner-overlay" aria-hidden="true"></div>
+                  <button type="button" class="gallery-expand" data-gallery-expand aria-label="Expand Gadget Clinic screenshot" aria-haspopup="dialog" aria-controls="screenshot-viewer" hidden>
+                    <span class="mono">[ EXPAND &#8599; ]</span>
+                  </button>
                 </div>
                 <div class="gallery-controls" hidden>
                   <button type="button" class="gallery-button" data-gallery-prev aria-label="Previous Gadget Clinic screenshot" aria-controls="gadget-clinic-screenshots">&larr;</button>
@@ -459,6 +468,27 @@
       </button>
     </div>
   </div>
+
+  <dialog class="screenshot-viewer" id="screenshot-viewer" data-screenshot-viewer data-lenis-prevent aria-labelledby="screenshot-viewer-title">
+    <div class="viewer-header">
+      <h2 class="mono" id="screenshot-viewer-title" data-viewer-title>Project screenshots</h2>
+      <button type="button" class="viewer-button" data-viewer-close aria-label="Close screenshot viewer">[ CLOSE &#215; ]</button>
+    </div>
+    <div class="viewer-stage" data-viewer-stage tabindex="0" role="region" aria-label="Full screenshot; scroll to inspect at 100 percent">
+      <img class="viewer-image" data-viewer-image alt="" decoding="async" />
+    </div>
+    <div class="viewer-footer">
+      <div class="viewer-navigation">
+        <button type="button" class="gallery-button" data-viewer-prev aria-label="Previous full screenshot">&larr;</button>
+        <span class="mono gallery-counter" data-viewer-counter role="status" aria-live="polite" aria-atomic="true"></span>
+        <button type="button" class="gallery-button" data-viewer-next aria-label="Next full screenshot">&rarr;</button>
+      </div>
+      <div class="viewer-tools">
+        <button type="button" class="viewer-button" data-viewer-zoom aria-pressed="false" aria-controls="screenshot-viewer">[ 100% ]</button>
+        <a class="viewer-button" data-viewer-original target="_blank" rel="noopener noreferrer">[ OPEN ORIGINAL &#8599; ]</a>
+      </div>
+    </div>
+  </dialog>
 
   <script type="module" src="/src/main.js"></script>
 </body>
